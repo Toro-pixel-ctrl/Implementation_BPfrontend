@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>BlackPoint — Systems & Intelligence Firm</title>
+  <meta name="description" content="Firma de integración de inteligencia para empresas B2B complejas. Diagnóstico estructural, integración por fases, apalancamiento medible.">
+  <meta name="keywords" content="integración de sistemas, inteligencia operativa, B2B, automatización">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BlackPoint — Systems & Intelligence Firm">
+  <meta property="og:description" content="Firma de integración de inteligencia para empresas B2B complejas. Diagnóstico estructural, integración por fases, apalancamiento medible.">
+  <meta property="og:url" content="https://blackpointgroup.eu">
+  <meta property="og:site_name" content="BlackPoint">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BlackPoint — Systems & Intelligence Firm">
+  <meta name="twitter:description" content="Firma de integración de inteligencia para empresas B2B complejas.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23050505' width='100' height='100'/><rect fill='%23B8A020' x='20' y='20' width='20' height='20'/><rect fill='%23B8A020' x='60' y='60' width='20' height='20'/></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;800&family=Geist+Mono:wght@500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
+    body {
+      font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: #050505;
+      color: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Typography */
+    h1 {
+      font-family: 'Geist', sans-serif;
+      font-size: clamp(56px, 8vw, 92px);
+      font-weight: 800;
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-family: 'Geist', sans-serif;
+      font-size: clamp(36px, 5vw, 68px);
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .body-text {
+      font-family: 'Geist', sans-serif;
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: #606060;
+    }
+
+    .mono-label {
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #B8A020;
+    }
+
+    .metric-number {
+      font-family: 'Geist Mono', monospace;
+      font-size: clamp(36px, 8vw, 56px);
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    /* Colors */
+    .text-accent { color: #B8A020; }
+    .text-muted { color: #606060; }
+    .border-subtle { border-color: rgba(255, 255, 255, 0.07); }
+    .bg-primary { background-color: #050505; }
+    .bg-secondary { background-color: #0A0A0A; }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      background: transparent;
+      backdrop-filter: none;
+      z-index: 1000;
+      transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+    }
+
+    header.scrolled {
+      background-color: rgba(5, 5, 5, 0.92);
+      backdrop-filter: blur(20px);
+    }
+
+    .wordmark {
+      font-family: 'Geist', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 99px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Geist', sans-serif;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background-color: #B8A020;
+      color: #050505;
+      border-color: #B8A020;
+    }
+
+    .btn-primary:hover {
+      background-color: #D4BC47;
+      border-color: #D4BC47;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-ghost:hover {
+      border-color: #B8A020;
+      color: #B8A020;
+    }
+
+    /* Pill Options */
+    .pill {
+      padding: 12px 20px;
+      border-radius: 99px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      font-family: 'Geist', sans-serif;
+    }
+
+    .pill:hover {
+      border-color: #B8A020;
+      color: #B8A020;
+    }
+
+    .pill.active {
+      background-color: #B8A020;
+      color: #050505;
+      border-color: #B8A020;
+    }
+
+    /* Scroll Animations */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(32px);
+      animation: fadeInUp 0.7s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .stagger-child {
+      opacity: 0;
+      transform: translateY(32px);
+    }
+
+    .stagger-child.in-view {
+      animation: fadeInUp 0.7s ease-out forwards;
+    }
+
+    /* Card Styles */
+    .card-base {
+      background-color: #0A0A0A;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 8px;
+      padding: 32px;
+      transition: all 0.3s ease;
+    }
+
+    .card-base:hover {
+      border-color: rgba(184, 160, 32, 0.3);
+      background-color: rgba(10, 10, 10, 0.8);
+    }
+
+    /* Particle Canvas */
+    #particles {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    @media (max-width: 768px) {
+      #particles {
+        display: none;
+      }
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: #050505;
+      z-index: 999;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: #ffffff;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Metrics Table */
+    .metrics-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 64px;
+    }
+
+    .metrics-table th,
+    .metrics-table td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      font-size: 14px;
+    }
+
+    .metrics-table th {
+      font-weight: 500;
+      color: #B8A020;
+      font-family: 'Geist Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .metrics-table tbody tr:hover {
+      background-color: rgba(184, 160, 32, 0.05);
+    }
+
+    .metrics-table .highlight {
+      color: #B8A020;
+      font-weight: 600;
+    }
+
+    /* Progress Dots */
+    .progress-dots {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      background: #B8A020;
+      width: 32px;
+      border-radius: 4px;
+    }
+
+    /* Form */
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #ffffff;
+      font-family: 'Geist', sans-serif;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      background: #0A0A0A;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      color: #ffffff;
+      font-family: 'Geist', sans-serif;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #B8A020;
+      background: rgba(10, 10, 10, 0.5);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* Confirmation Modal */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #0A0A0A;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 48px;
+      max-width: 400px;
+      text-align: center;
+      animation: slideUp 0.4s ease-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      background: rgba(184, 160, 32, 0.9);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 500;
+      transition: all 0.3s ease;
+    }
+
+    .back-to-top.show {
+      display: flex;
+    }
+
+    .back-to-top:hover {
+      background: #B8A020;
+      transform: translateY(-4px);
+    }
+
+    .back-to-top::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-top: 2px solid #050505;
+      border-right: 2px solid #050505;
+      transform: rotate(-45deg);
+    }
+
+    /* Scroll Indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+
+    .scroll-indicator span {
+      font-size: 12px;
+      color: #606060;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .scroll-indicator::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-bottom: 2px solid #606060;
+      border-right: 2px solid #606060;
+      transform: rotate(45deg);
+    }
+
+    /* Hero Gradient Overlay */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(5, 5, 5, 0) 0%, rgba(5, 5, 5, 0.8) 100%);
+      pointer-events: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hide-mobile { display: none !important; }
+      .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+      }
+      .modal-content {
+        padding: 32px 24px;
+        margin: 20px;
+      }
+    }
+
+    /* Section Spacing */
+    section {
+      position: relative;
+    }
+
+    .section-padding {
+      padding: 96px 40px;
+    }
+
+    @media (max-width: 768px) {
+      .section-padding {
+        padding: 64px 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header id="header">
+    <div class="flex items-center justify-between h-full px-8">
+      <div class="wordmark">BlackPoint</div>
+      <nav class="flex items-center gap-8">
+        <a href="#contact" class="btn btn-primary hide-mobile">Solicitar Mapeo</a>
+        <button class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#contact" class="btn btn-primary">Solicitar Mapeo Estructurado</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden pt-16">
+    <canvas id="particles" class="absolute inset-0"></canvas>
+    <div class="hero-overlay"></div>
+
+    <div class="relative z-10 text-center max-w-4xl px-8">
+      <h1 class="mb-12">
+        Instalamos inteligencia<br>
+        donde el negocio pierde control.
+      </h1>
+
+      <div class="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+        <a href="#contact" class="btn btn-primary">Solicitar Mapeo Estructurado</a>
+        <a href="#proceso" class="btn btn-ghost">Cómo operamos</a>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Desplazar</span>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="relative bg-primary section-padding">
+    <div class="max-w-6xl mx-auto">
+      <div class="max-w-3xl mb-16">
+        <h2 class="mb-8">
+          Datos fragmentados.<br>
+          Decisiones lentas.<br>
+          Ejecución inconsistente.
+        </h2>
+        <p class="body-text text-lg">
+          Las operaciones complejas requieren visibilidad integrada. Sin esto, cada sistema funciona en silos. El resultado: retrasos costosos, oportunidades perdidas, y equipos frustrados ejecutando tácticas desconectadas.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="card-base stagger-child">
+          <div class="w-12 h-12 bg-secondary rounded-lg mb-4 flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" stroke="#B8A020" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.5a2 2 0 00-1 .268m-6 0a2 2 0 00-1-.268H5a2 2 0 00-2 2v4a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Datos fragmentados</h3>
+          <p class="text-muted">Tus sistemas no hablan entre sí. La verdad vive en múltiples plataformas.</p>
+        </div>
+
+        <div class="card-base stagger-child" style="animation-delay: 0.12s">
+          <div class="w-12 h-12 bg-secondary rounded-lg mb-4 flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" stroke="#B8A020" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Decisiones lentas</h3>
+          <p class="text-muted">Recopilación manual es mortal. Los análisis llegan días después de los eventos.</p>
+        </div>
+
+        <div class="card-base stagger-child" style="animation-delay: 0.24s">
+          <div class="w-12 h-12 bg-secondary rounded-lg mb-4 flex items-center justify-center">
+            <svg class="w-6 h-6" fill="none" stroke="#B8A020" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Ejecución inconsistente</h3>
+          <p class="text-muted">Cada equipo improvisa su propio proceso. Nada escala. Nada mejora.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section id="proceso" class="relative bg-secondary section-padding">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-center mb-24">Diagnóstico primero. Integración después.</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
+        <div class="stagger-child text-center">
+          <div class="text-5xl font-bold text-accent mb-4">01</div>
+          <h3 class="text-xl font-bold mb-3">Mapeo</h3>
+          <p class="text-muted">Cartografiamos tu arquitectura operativa. Identificamos puntos de fractura.</p>
+        </div>
+
+        <div class="stagger-child text-center" style="animation-delay: 0.12s">
+          <div class="text-5xl font-bold text-accent mb-4">02</div>
+          <h3 class="text-xl font-bold mb-3">Estructura</h3>
+          <p class="text-muted">Definimos flujos de datos y lógica de negocio. Reducimos ruido, exponemos verdad.</p>
+        </div>
+
+        <div class="stagger-child text-center" style="animation-delay: 0.24s">
+          <div class="text-5xl font-bold text-accent mb-4">03</div>
+          <h3 class="text-xl font-bold mb-3">Integración</h3>
+          <p class="text-muted">Conectamos sistemas críticos en fases. Cada integración es una victoria visible.</p>
+        </div>
+
+        <div class="stagger-child text-center" style="animation-delay: 0.36s">
+          <div class="text-5xl font-bold text-accent mb-4">04</div>
+          <h3 class="text-xl font-bold mb-3">Calibración</h3>
+          <p class="text-muted">Ajustamos en producción. Medimos, aprendemos, escalamos.</p>
+        </div>
+      </div>
+
+      <div class="flex justify-center">
+        <a href="#contact" class="btn btn-primary">Comenzar Mapeo Estructurado</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Build Section -->
+  <section class="relative bg-primary section-padding">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="mb-16">Lo que construimos contigo</h2>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+        <div class="max-w-md">
+          <p class="body-text text-lg mb-12">
+            No instalamos herramientas. Instalamos sistemas. Cada componente que agregamos resuelve un punto de fractura específico. Nada es genérico. Todo es medible.
+          </p>
+          <a href="#contact" class="btn btn-primary">Ver caso de estudio</a>
+        </div>
+
+        <div class="grid gap-8">
+          <div class="card-base stagger-child">
+            <div class="mono-label mb-3">Interacción</div>
+            <h3 class="text-xl font-bold mb-4">Visibilidad en Tiempo Real</h3>
+            <ul class="space-y-2 text-muted text-sm">
+              <li>• Estado operativo visible en un dashboard</li>
+              <li>• Alertas antes de que fallen los procesos</li>
+              <li>• Acciones contextuales para cada anomalía</li>
+            </ul>
+          </div>
+
+          <div class="card-base stagger-child" style="animation-delay: 0.12s">
+            <div class="mono-label mb-3">Outreach</div>
+            <h3 class="text-xl font-bold mb-4">Automatización de Contacto</h3>
+            <ul class="space-y-2 text-muted text-sm">
+              <li>• Secuencias sin intervención manual</li>
+              <li>• Datos frescos directamente en tu CRM</li>
+              <li>• Sincronización bidireccional de contexto</li>
+            </ul>
+          </div>
+
+          <div class="card-base stagger-child" style="animation-delay: 0.24s">
+            <div class="mono-label mb-3">Contenido</div>
+            <h3 class="text-xl font-bold mb-4">Relevancia Distribuida</h3>
+            <ul class="space-y-2 text-muted text-sm">
+              <li>• Contenido adaptado a ciclo de venta</li>
+              <li>• Publicación en canales correctos, momento correcto</li>
+              <li>• Rendimiento medido por impacto, no por volumen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fit Section -->
+  <section class="relative bg-secondary section-padding">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="mb-16">Para quién es BlackPoint</h2>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+        <div>
+          <h3 class="text-xl font-bold text-accent mb-8">Encaja con BlackPoint</h3>
+          <ul class="space-y-4">
+            <li class="flex gap-4 pb-4 border-b border-subtle">
+              <span class="text-accent text-xl flex-shrink-0">✓</span>
+              <span>Operaciones B2B complejas (>10M en revenue anual)</span>
+            </li>
+            <li class="flex gap-4 pb-4 border-b border-subtle">
+              <span class="text-accent text-xl flex-shrink-0">✓</span>
+              <span>Múltiples sistemas legacy + nuevos en paralelo</span>
+            </li>
+            <li class="flex gap-4 pb-4 border-b border-subtle">
+              <span class="text-accent text-xl flex-shrink-0">✓</span>
+              <span>Decisiones que requieren datos integrados</span>
+            </li>
+            <li class="flex gap-4 pb-4 border-b border-subtle">
+              <span class="text-accent text-xl flex-shrink-0">✓</span>
+              <span>Equipos distribuidos entre sales, ops, producto</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="text-accent text-xl flex-shrink-0">✓</span>
+              <span>Crecimiento sostenido es prioridad, no urgencia táctica</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-muted mb-8">No es para</h3>
+          <ul class="space-y-4">
+            <li class="flex gap-4 pb-4 border-b border-subtle">
+              <span class="text-muted text-xl flex-shrink-0">–</span>
+              <span class="text-muted">Startups en fase MVP (aún sin datos operativos)</span>
+            </li>
+            <li class="flex gap-4 pb-4 border-b border-subtle">
+              <span class="text-muted text-xl flex-shrink-0">–</span>
+              <span class="text-muted">Organizaciones buscando "herramienta barata rápida"</span>
+            </li>
+            <li class="flex gap-4 pb-4 border-b border-subtle">
+              <span class="text-muted text-xl flex-shrink-0">–</span>
+              <span class="text-muted">Equipos sin dueño claro de la integración</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="text-muted text-xl flex-shrink-0">–</span>
+              <span class="text-muted">Empresas que no miden el impacto de sus decisiones</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metrics Section -->
+  <section class="relative bg-primary section-padding">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="mb-16">Por los números</h2>
+
+      <div class="overflow-x-auto mb-20">
+        <table class="metrics-table">
+          <thead>
+            <tr>
+              <th>Métrica</th>
+              <th>Operación Manual</th>
+              <th>Con BlackPoint</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tiempo de integración de datos</td>
+              <td>2-4 semanas por fuente</td>
+              <td class="highlight">5-7 días ✓</td>
+            </tr>
+            <tr>
+              <td>Latencia de visibilidad</td>
+              <td>24-48 horas mínimo</td>
+              <td class="highlight">&lt;15 minutos ✓</td>
+            </tr>
+            <tr>
+              <td>Errores de sincronización anual</td>
+              <td>300-800 incidencias</td>
+              <td class="highlight">&lt;5 incidencias ✓</td>
+            </tr>
+            <tr>
+              <td>Costo operativo por integración</td>
+              <td>$40-80K (personas + herramientas)</td>
+              <td class="highlight">$12-18K (una sola vez) ✓</td>
+            </tr>
+            <tr>
+              <td>Escalabilidad a nuevos datos</td>
+              <td>Requiere nueva asignación de personas</td>
+              <td class="highlight">Agregable sin rediseño ✓</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="stagger-child text-center">
+          <div class="metric-number mb-2">86<span class="text-accent">%</span></div>
+          <p class="mono-label">Reducción en tiempo de decisión</p>
+        </div>
+
+        <div class="stagger-child text-center" style="animation-delay: 0.12s">
+          <div class="metric-number mb-2">24<span class="text-accent">/7</span></div>
+          <p class="mono-label">Visibilidad operativa</p>
+        </div>
+
+        <div class="stagger-child text-center" style="animation-delay: 0.24s">
+          <div class="metric-number mb-2">94<span class="text-accent">%</span></div>
+          <p class="mono-label">Exactitud de sincronización</p>
+        </div>
+
+        <div class="stagger-child text-center" style="animation-delay: 0.36s">
+          <div class="metric-number mb-2">3<span class="text-accent">-6mo</span></div>
+          <p class="mono-label">Payback típico</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="relative bg-secondary section-padding">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-center mb-16">Solicitar Mapeo Estructurado</h2>
+
+      <!-- Qualification Flow -->
+      <div id="qualificationFlow">
+        <!-- Progress Dots -->
+        <div class="progress-dots">
+          <div class="dot active" id="dot-0"></div>
+          <div class="dot" id="dot-1"></div>
+          <div class="dot" id="dot-2"></div>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="qualification-step fade-in-up" id="step-0">
+          <h3 class="text-xl font-bold mb-8 text-center">¿Cuál es tu sector operativo principal?</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <button class="pill" data-step="0" data-value="Servicios financieros">Servicios financieros</button>
+            <button class="pill" data-step="0" data-value="Manufactura & supply chain">Manufactura & supply chain</button>
+            <button class="pill" data-step="0" data-value="SaaS B2B">SaaS B2B</button>
+            <button class="pill" data-step="0" data-value="Otro">Otro (especificar)</button>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="qualification-step hidden" id="step-1">
+          <h3 class="text-xl font-bold mb-8 text-center">¿Dónde está el mayor cuello de botella?</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <button class="pill" data-step="1" data-value="Toma de decisiones lenta">Toma de decisiones lenta</button>
+            <button class="pill" data-step="1" data-value="Duplicación de datos">Duplicación de datos</button>
+            <button class="pill" data-step="1" data-value="Pérdida de contexto entre equipos">Pérdida de contexto entre equipos</button>
+            <button class="pill" data-step="1" data-value="Falta de visibilidad operativa">Falta de visibilidad operativa</button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="qualification-step hidden" id="step-2">
+          <h3 class="text-xl font-bold mb-8 text-center">¿Qué nivel de automatización tienes hoy?</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <button class="pill" data-step="2" data-value="Casi todo manual">Casi todo manual</button>
+            <button class="pill" data-step="2" data-value="Herramientas sin integración">Herramientas sin integración</button>
+            <button class="pill" data-step="2" data-value="Algunos flujos automatizados">Algunos flujos automatizados</button>
+            <button class="pill" data-step="2" data-value="Arquitectura establecida, necesita optimización">Arquitectura establecida, necesita optimización</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form (hidden until step 3 complete) -->
+      <form id="contactForm" class="hidden mt-16 fade-in-up">
+        <div class="form-group">
+          <label for="name">Nombre completo</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="company">Empresa</label>
+          <input type="text" id="company" name="company" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Describa su situación operativa en 2-3 líneas</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-full">Enviar Solicitud</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Confirmation Modal -->
+  <div class="modal" id="confirmationModal">
+    <div class="modal-content">
+      <h3 class="text-2xl font-bold mb-4">Recibido</h3>
+      <p class="text-muted mb-8">Nos pondremos en contacto en 24 horas.</p>
+      <button class="btn btn-primary w-full" onclick="location.href='#'">Volver al inicio</button>
+    </div>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"></button>
+
+  <!-- Footer -->
+  <footer class="bg-primary border-t border-subtle py-16">
+    <div class="max-w-6xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+      <div>
+        <div class="wordmark mb-2">BlackPoint</div>
+        <p class="text-muted text-sm">Systems & Intelligence Firm</p>
+      </div>
+      <div class="text-right">
+        <p class="text-sm mb-2">blackpointgroup.eu</p>
+        <p class="text-muted text-xs">© 2025 BlackPoint. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ============ UTILITY FUNCTIONS ============
+    function observeElements() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            if (entry.target.classList.contains('metric-number')) {
+              animateCounter(entry.target);
+              observer.unobserve(entry.target);
+            }
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.stagger-child').forEach((el) => observer.observe(el));
+      document.querySelectorAll('.metric-number').forEach((el) => observer.observe(el));
+    }
+
+    function animateCounter(element) {
+      const finalValue = parseInt(element.textContent);
+      let current = 0;
+      const increment = finalValue / 140;
+      const interval = setInterval(() => {
+        current += increment;
+        if (current >= finalValue) {
+          element.textContent = finalValue + (element.textContent.includes('%') ? '%' : '') + (element.textContent.includes('/') ? '/7' : '');
+          clearInterval(interval);
+        } else {
+          element.textContent = Math.floor(current) + (element.textContent.includes('%') ? '%' : '');
+        }
+      }, 10);
+    }
+
+    // ============ PARTICLE CANVAS ============
+    const canvas = document.getElementById('particles');
+    const ctx = canvas ? canvas.getContext('2d') : null;
+    let particles = [];
+
+    function resizeCanvas() {
+      if (canvas) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      if (window.innerWidth > 768) {
+        for (let i = 0; i < 100; i++) {
+          particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 0.5,
+            vy: (Math.random() - 0.5) * 0.5,
+            type: Math.random() > 0.7 ? 'dot' : 'dash',
+            angle: Math.random() * Math.PI * 2,
+          });
+        }
+      }
+    }
+
+    function animateParticles() {
+      if (!ctx || window.innerWidth <= 768) return;
+
+      ctx.fillStyle = 'rgba(5, 5, 5, 0)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+      ctx.lineWidth = 1;
+
+      particles.forEach((p) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.angle += 0.01;
+
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+
+        if (p.type === 'dash') {
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.angle);
+          ctx.strokeRect(-6, -1, 12, 2);
+          ctx.restore();
+        } else {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 1, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      });
+
+      requestAnimationFrame(animateParticles);
+    }
+
+    // ============ HEADER SCROLL ============
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+
+      const backToTop = document.getElementById('backToTop');
+      if (window.scrollY > 300) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+
+    // ============ MOBILE MENU ============
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+
+    document.querySelectorAll('#mobileMenu a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // ============ QUALIFICATION FLOW ============
+    let qualificationData = {
+      sector: '',
+      bottleneck: '',
+      automation: '',
+    };
+
+    const pills = document.querySelectorAll('.pill');
+    pills.forEach((pill) => {
+      pill.addEventListener('click', () => {
+        const step = pill.getAttribute('data-step');
+        const value = pill.getAttribute('data-value');
+
+        document.querySelectorAll(`.pill[data-step="${step}"]`).forEach((p) => p.classList.remove('active'));
+        pill.classList.add('active');
+
+        const stepKeys = ['sector', 'bottleneck', 'automation'];
+        qualificationData[stepKeys[step]] = value;
+
+        setTimeout(() => {
+          const nextStep = parseInt(step) + 1;
+          if (nextStep < 3) {
+            document.getElementById(`step-${step}`).classList.add('hidden');
+            document.getElementById(`step-${nextStep}`).classList.remove('hidden');
+
+            document.getElementById(`dot-${step}`).classList.remove('active');
+            document.getElementById(`dot-${nextStep}`).classList.add('active');
+          } else {
+            document.getElementById(`step-${step}`).classList.add('hidden');
+            document.getElementById('qualificationFlow').classList.add('hidden');
+            document.getElementById('contactForm').classList.remove('hidden');
+
+            document.getElementById(`dot-${step}`).classList.remove('active');
+            document.getElementById(`dot-${nextStep}`).classList.add('active');
+          }
+        }, 300);
+      });
+    });
+
+    // ============ CONTACT FORM ============
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const formData = {
+          name: document.getElementById('name').value,
+          company: document.getElementById('company').value,
+          email: document.getElementById('email').value,
+          message: document.getElementById('message').value,
+          sector: qualificationData.sector,
+          bottleneck: qualificationData.bottleneck,
+          automation: qualificationData.automation,
+          timestamp: new Date().toISOString(),
+        };
+
+        let inquiries = JSON.parse(localStorage.getItem('blackpoint_contact_inquiries') || '[]');
+        inquiries.push(formData);
+        localStorage.setItem('blackpoint_contact_inquiries', JSON.stringify(inquiries));
+
+        console.log('Form submitted:', formData);
+
+        contactForm.classList.add('hidden');
+        document.getElementById('confirmationModal').classList.add('open');
+
+        setTimeout(() => {
+          contactForm.reset();
+          document.getElementById('qualificationFlow').classList.remove('hidden');
+          document.getElementById('step-0').classList.remove('hidden');
+          document.getElementById('step-1').classList.add('hidden');
+          document.getElementById('step-2').classList.add('hidden');
+          document.getElementById('dot-0').classList.add('active');
+          document.getElementById('dot-1').classList.remove('active');
+          document.getElementById('dot-2').classList.remove('active');
+          document.querySelectorAll('.pill').forEach((p) => p.classList.remove('active'));
+          qualificationData = { sector: '', bottleneck: '', automation: '' };
+          document.getElementById('confirmationModal').classList.remove('open');
+        }, 3000);
+      });
+    }
+
+    // ============ INITIALIZATION ============
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      initParticles();
+    });
+
+    resizeCanvas();
+    initParticles();
+    animateParticles();
+    observeElements();
+  </script>
+</body>
+</html>
