@@ -50,12 +50,129 @@
       }
     }
 
+    :root {
+      --bg-primary: #FAFAFA;
+      --bg-secondary: #FFFFFF;
+      --text-primary: #1A1A1A;
+      --text-muted: #6B7280;
+      --text-label: #9CA3AF;
+      --accent: #B8A020;
+      --border-subtle: rgba(0, 0, 0, 0.05);
+      --glass-bg: rgba(255, 255, 255, 0.7);
+      --glass-border: rgba(0, 0, 0, 0.05);
+      --hero-gradient-center: rgba(250, 250, 250, 0.9);
+      --hero-gradient-mid: rgba(250, 250, 250, 0.5);
+      --hero-gradient-edge: rgba(250, 250, 250, 0);
+      --btn-text: #FFFFFF;
+    }
+
+    html.dark {
+      --bg-primary: #0A0A0A;
+      --bg-secondary: #141414;
+      --bg-footer: #050505;
+      --text-primary: #FFFFFF;
+      --text-secondary: #D1D5DB; /* gray-300 */
+      --text-muted: #9CA3AF; /* gray-400 */
+      --text-label: #6B7280; /* gray-500 */
+      --accent: #B8A020;
+      --border-subtle: rgba(255, 255, 255, 0.1);
+      --glass-bg: rgba(10, 10, 10, 0.9);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --hero-gradient-center: rgba(0, 0, 0, 0.7);
+      --hero-gradient-mid: rgba(0, 0, 0, 0.4);
+      --hero-gradient-edge: rgba(0, 0, 0, 0);
+      --btn-text: #000000;
+    }
+
+    /* Dark Mode Brute Force Contrast Fix */
+    .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+      color: #FFFFFF !important;
+    }
+
+    .dark p {
+      color: #D1D5DB !important;
+    }
+
+    .dark td {
+      color: #E5E7EB !important;
+    }
+
+    .dark th {
+      color: #9CA3AF !important;
+    }
+
+    .dark label {
+      color: #D1D5DB !important;
+    }
+
+    .dark .cta-box h1, .dark .cta-box h2, .dark .cta-box h3, .dark .cta-box h4 {
+      color: #FFFFFF !important;
+    }
+
+    .dark .section-subtitle, .dark .text-muted {
+      color: #9CA3AF !important;
+    }
+
+    .dark .logo, .dark [class*="logo"], .dark .logo span {
+      color: #FFFFFF !important;
+    }
+
+    .dark #next-level-cta,
+    .dark [data-section="cta-highlight"] {
+      background-color: #1A1A1A !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .dark button[class*="lang"], .dark .language-toggle, .dark .lang-switch, .dark #langToggle {
+      background-color: transparent !important;
+      color: #FFFFFF !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+
+    /* Footer & Input Brute Force */
+    .dark footer {
+      background-color: #0A0A0A !important;
+    }
+    .dark footer h2, .dark footer h3, .dark footer h4, .dark footer span, .dark footer a {
+      color: #E5E7EB !important;
+    }
+    .dark footer p {
+      color: #9CA3AF !important;
+    }
+    .dark footer .watermark, .dark footer [class*="watermark"], .dark footer [class*="bg-text"] {
+      color: rgba(255, 255, 255, 0.03) !important;
+    }
+
+    .dark footer .logo, .dark footer [class*="logo"], .dark footer .brand {
+      color: #FFFFFF !important;
+    }
+
+    .dark footer [class*="nav"] span, .dark footer [class*="nav"] h3, .dark footer [class*="nav"] h4, .dark footer .section-label, .dark footer .mono-label {
+      color: #9CA3AF !important;
+    }
+
+    .dark footer .badge, .dark footer [class*="badge"], .dark footer [class*="status"], .dark footer .tech-tag {
+      color: #E5E7EB !important;
+      border-color: rgba(255, 255, 255, 0.2) !important;
+      background-color: transparent !important;
+    }
+
+    .dark input, .dark textarea {
+      background-color: #141414 !important;
+      color: #FFFFFF !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+    }
+    .dark input::placeholder, .dark textarea::placeholder {
+      color: #6B7280 !important;
+    }
+
     body {
       font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background-color: #FAFAFA;
-      color: #1A1A1A;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
       line-height: 1.6;
       overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     /* Typography */
@@ -74,12 +191,20 @@
       line-height: 1.2;
     }
 
+    h1, h2, h3, h4 {
+      color: var(--text-primary);
+    }
+
     .body-text {
       font-family: 'Geist', sans-serif;
       font-size: 18px;
       font-weight: 300;
       line-height: 1.8;
-      color: #6B7280;
+      color: var(--text-secondary);
+    }
+
+    html:not(.dark) .body-text {
+      color: var(--text-muted);
     }
 
     .mono-label {
@@ -88,22 +213,22 @@
       font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #9CA3AF;
+      color: var(--text-label);
     }
 
     .metric-number {
       font-family: 'Geist Mono', monospace;
       font-size: clamp(36px, 8vw, 56px);
       font-weight: 500;
-      color: #1A1A1A;
+      color: var(--text-primary);
     }
 
     /* Colors */
-    .text-accent { color: #B8A020; }
-    .text-muted { color: #6B7280; }
-    .border-subtle { border-color: rgba(0, 0, 0, 0.1); }
-    .bg-primary { background-color: #FAFAFA; }
-    .bg-secondary { background-color: #FFFFFF; }
+    .text-accent { color: var(--accent); }
+    .text-muted { color: var(--text-muted); }
+    .border-subtle { border-color: var(--border-subtle); }
+    .bg-primary { background-color: var(--bg-primary); }
+    .bg-secondary { background-color: var(--bg-secondary); }
 
     /* Antigravity Reveal Typography */
     .reveal-container {
@@ -132,11 +257,15 @@
       max-width: 1200px;
       margin-top: 20px;
       border-radius: 99px;
-      background: rgba(255, 255, 255, 0.7);
+      background: var(--glass-bg);
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--glass-border);
       z-index: 1000;
       transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html.dark #header {
+      background: rgba(0, 0, 0, 0.8);
     }
 
     #header.scrolled {
@@ -144,8 +273,8 @@
       max-width: 100%;
       margin-top: 0;
       border-radius: 0;
-      background: rgba(255, 255, 255, 0.95);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      background: var(--glass-bg);
+      border-bottom: 1px solid var(--glass-border);
     }
 
     /* Buttons */
@@ -164,9 +293,9 @@
     }
 
     .btn-primary {
-      background-color: #B8A020;
-      color: #ffffff;
-      border-color: #B8A020;
+      background-color: var(--accent);
+      color: var(--btn-text);
+      border-color: var(--accent);
     }
 
     .btn-primary:hover {
@@ -177,13 +306,13 @@
 
     .btn-ghost {
       background: transparent;
-      color: #1A1A1A;
-      border-color: rgba(0, 0, 0, 0.2);
+      color: var(--text-primary);
+      border-color: var(--border-subtle);
     }
 
     .btn-ghost:hover {
-      border-color: #B8A020;
-      color: #B8A020;
+      border-color: var(--accent);
+      color: var(--accent);
     }
 
 
@@ -213,12 +342,12 @@
 
     .card-base {
       position: relative;
-      background-color: #FFFFFF;
-      border: 1px solid #E5E7EB;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
       border-radius: 12px;
       padding: 32px;
       transition: all 0.3s ease;
-      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     }
 
     .card-base:hover {
@@ -265,8 +394,9 @@
     .system-card {
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
-      background: #FFFFFF;
-      border: 1px solid #F3F4F6;
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
       border-radius: 16px;
       padding: 40px;
     }
@@ -298,14 +428,14 @@
     .icon-box {
       width: 52px;
       height: 52px;
-      background: #FAFAFA;
+      background: var(--bg-primary);
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 28px;
-      color: #B8A020;
-      border: 1px solid #F3F4F6;
+      color: var(--accent);
+      border: 1px solid var(--border-subtle);
       transition: all 0.3s ease;
     }
 
@@ -340,8 +470,9 @@
 
     /* Bento Grid Helpers */
     .bento-card {
-      background: #FFFFFF;
-      border: 1px solid #E5E7EB;
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
       border-radius: 16px;
       padding: 40px;
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -350,8 +481,8 @@
     }
 
     .bento-card:hover {
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
-      border-color: #B8A020;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+      border-color: var(--accent);
     }
 
     .card-base h3 {
@@ -426,12 +557,24 @@
       text-transform: uppercase;
     }
 
+    .metrics-table tbody tr:nth-child(odd) {
+      background-color: var(--bg-secondary);
+    }
+
+    html.dark .metrics-table tbody tr:nth-child(odd) {
+      background-color: #141414;
+    }
+
     .metrics-table tbody tr:nth-child(even) {
+      background-color: var(--bg-primary);
+    }
+
+    html:not(.dark) .metrics-table tbody tr:nth-child(even) {
       background-color: #F9FAFB;
     }
 
-    .metrics-table tbody tr:hover {
-      background-color: rgba(184, 160, 32, 0.05);
+    html.dark .metrics-table tbody tr:nth-child(even) {
+      background-color: #1A1A1A;
     }
 
     .metrics-table .highlight {
@@ -458,10 +601,10 @@
     .form-group textarea {
       width: 100%;
       padding: 12px 16px;
-      background: #FFFFFF;
-      border: 1px solid #E5E7EB;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
       border-radius: 6px;
-      color: #1A1A1A;
+      color: var(--text-primary);
       font-family: 'Geist', sans-serif;
       font-size: 14px;
       transition: all 0.2s ease;
@@ -590,7 +733,7 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(250, 250, 250, 0.9) 0%, rgba(250, 250, 250, 0.5) 50%, rgba(250, 250, 250, 0) 100%);
+      background: radial-gradient(circle at 50% 50%, var(--hero-gradient-center) 0%, var(--hero-gradient-mid) 50%, var(--hero-gradient-edge) 100%);
       pointer-events: none;
     }
 
@@ -628,22 +771,31 @@
 
 <body>
   <!-- Header -->
-  <header id="header" class="h-16 flex items-center shadow-sm">
+  <header id="header" class="h-16 flex items-center shadow-sm dark:bg-black/80 backdrop-blur-md">
     <div class="flex items-center justify-between w-full px-6 md:px-10">
       
       <!-- Logo -->
-      <a href="#" class="flex flex-col justify-center border-none no-underline">
-        <span class="font-bold text-lg tracking-[0.2em] text-gray-900 leading-none">BLACKPOINT</span>
+      <a href="#" class="flex flex-col justify-center border-none no-underline logo">
+        <span class="font-bold text-lg tracking-[0.2em] text-gray-900 dark:text-white leading-none">BLACKPOINT</span>
         <span class="text-[9px] text-gray-400 tracking-widest uppercase mt-1">Systems & Intelligence</span>
       </a>
 
       <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-10">
-        <a href="#proceso" class="text-[13px] text-gray-900 font-medium hover:text-[#B8A020] transition-colors duration-300">Proceso</a>
-        <a href="#servicios" class="text-[13px] text-gray-900 font-medium hover:text-[#B8A020] transition-colors duration-300">Servicios</a>
-        <a href="#metricas" class="text-[13px] text-gray-900 font-medium hover:text-[#B8A020] transition-colors duration-300">Métricas</a>
-        <a href="contacto/" class="text-[13px] text-gray-900 font-medium hover:text-[#B8A020] transition-colors duration-300">Contacto</a>
-        <a href="#contact" class="text-[13px] text-gray-900 font-medium hover:text-[#B8A020] transition-colors duration-300 border border-gray-900 rounded-full px-5 py-2 hover:bg-gray-900 hover:text-white">Solicitar Diagnóstico</a>
+        <a href="#proceso" class="text-[13px] font-medium hover:text-[#B8A020] transition-colors duration-300" data-i18n="nav_process">Proceso</a>
+        <a href="#servicios" class="text-[13px] font-medium hover:text-[#B8A020] transition-colors duration-300" data-i18n="nav_services">Servicios</a>
+        <a href="#metricas" class="text-[13px] font-medium hover:text-[#B8A020] transition-colors duration-300" data-i18n="nav_metrics">Métricas</a>
+        <a href="contacto/" class="text-[13px] font-medium hover:text-[#B8A020] transition-colors duration-300" data-i18n="nav_contact">Contacto</a>
+        
+        <div class="flex items-center gap-2 border-r border-gray-200 dark:border-gray-800 pr-4 mr-2">
+          <button id="langToggle" class="text-[11px] font-bold hover:text-[#B8A020] bg-gray-100 dark:bg-transparent dark:text-white border border-transparent dark:border-white/30 px-2 py-1 rounded transition-colors" onclick="toggleLanguage()">ES</button>
+        </div>
+
+        <button id="themeToggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle Theme">
+          <svg class="w-4 h-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+          <svg class="w-4 h-4 hidden dark:block text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 18v1m9-9h1m-18 0H2m3.364-7.364l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707.707M12 7a5 5 0 100 10 5 5 0 000-10z"></path></svg>
+        </button>
+        <a href="#contact" class="text-[13px] font-medium border border-current rounded-full px-5 py-2 hover:bg-current hover:text-white dark:hover:text-black transition-all" data-i18n="cta_diagnose">Solicitar Diagnóstico</a>
       </nav>
 
       <!-- Mobile Toggle -->
@@ -657,13 +809,13 @@
   </header>
 
   <!-- Mobile Menu Overlay -->
-  <div id="mobileMenu" class="fixed inset-0 bg-white/98 backdrop-blur-xl z-[2000] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-500 md:hidden">
+  <div id="mobileMenu" class="fixed inset-0 bg-white/98 dark:bg-black/98 backdrop-blur-xl z-[2000] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-500 md:hidden">
     <nav class="flex flex-col items-center gap-12 text-center">
-      <a href="#proceso" class="text-3xl font-bold text-gray-900 tracking-tighter hover:text-accent transition-colors mobile-link">Proceso</a>
-      <a href="#servicios" class="text-3xl font-bold text-gray-900 tracking-tighter hover:text-accent transition-colors mobile-link">Servicios</a>
-      <a href="#metricas" class="text-3xl font-bold text-gray-900 tracking-tighter hover:text-accent transition-colors mobile-link">Métricas</a>
-      <a href="contacto/" class="text-3xl font-bold text-gray-900 tracking-tighter hover:text-accent transition-colors mobile-link">Contacto</a>
-      <a href="#contact" class="btn btn-primary mt-4">Solicitar Diagnóstico</a>
+      <a href="#proceso" class="text-3xl font-bold tracking-tighter hover:text-accent transition-colors mobile-link" data-i18n="nav_process">Proceso</a>
+      <a href="#servicios" class="text-3xl font-bold tracking-tighter hover:text-accent transition-colors mobile-link" data-i18n="nav_services">Servicios</a>
+      <a href="#metricas" class="text-3xl font-bold tracking-tighter hover:text-accent transition-colors mobile-link" data-i18n="nav_metrics">Métricas</a>
+      <a href="contacto/" class="text-3xl font-bold tracking-tighter hover:text-accent transition-colors mobile-link" data-i18n="nav_contact">Contacto</a>
+      <a href="#contact" class="btn btn-primary mt-4" data-i18n="cta_diagnose">Solicitar Diagnóstico</a>
     </nav>
   </div>
 
@@ -674,29 +826,35 @@
 
     <div class="relative z-10 text-center max-w-5xl px-8 drop-shadow-sm">
       <div class="reveal-container mb-4">
-        <span class="reveal-text mono-label font-black text-[#B8A020] tracking-[0.2em]">Systems & Intelligence Firm</span>
+        <span class="reveal-text mono-label font-black text-[#B8A020] tracking-[0.2em]" data-i18n="hero_firm">Systems & Intelligence Firm</span>
       </div>
       
       <div class="reveal-container">
-        <h1 class="reveal-text mb-6 text-gray-950 font-black tracking-tighter text-5xl md:text-7xl">
+        <h1 class="reveal-text mb-6 font-black tracking-tighter text-5xl md:text-7xl" data-i18n="hero_title">
           Instalamos inteligencia
         </h1>
       </div>
       
       <div class="reveal-container">
-        <p class="reveal-text text-xl md:text-3xl text-gray-600 mb-16 font-medium">
+        <p class="reveal-text text-xl md:text-3xl mb-6 font-medium" data-i18n="hero_subtitle">
           donde el negocio pierde control.
         </p>
       </div>
 
+      <div class="reveal-container mb-12">
+        <p class="reveal-text text-gray-500 dark:text-gray-400 text-lg" data-i18n="hero_description">
+          Firma de integración de sistemas para operaciones B2B complejas.
+        </p>
+      </div>
+
       <div class="flex flex-col sm:flex-row gap-6 justify-center opacity-0 translate-y-8 transition-all duration-1000 delay-700 staggered-reveal">
-        <a href="#contact" class="btn btn-primary px-10 py-4 text-lg">Solicitar Diagnóstico</a>
-        <a href="#proceso" class="btn btn-ghost px-10 py-4 text-lg">Cómo operamos</a>
+        <a href="#contact" class="btn btn-primary px-10 py-4 text-lg" data-i18n="cta_diagnose">Solicitar Diagnóstico</a>
+        <a href="#proceso" class="btn btn-ghost px-10 py-4 text-lg" data-i18n="cta_how">Cómo operamos</a>
       </div>
     </div>
 
     <div class="scroll-indicator">
-      <span>Desplazar</span>
+      <span data-i18n="hero_scroll">Desplazar</span>
     </div>
   </section>
 
@@ -706,13 +864,13 @@
       <div class="grid grid-cols-1 lg:grid-cols-[1fr,1.5fr] gap-20 items-end mb-24">
         <div>
           <div class="reveal-container">
-            <h2 class="reveal-text mb-8 tracking-tighter">
+            <h2 class="reveal-text mb-8 tracking-tighter" data-i18n="prob_title">
               Datos fragmentados.<br>
               Decisiones lentas.<br>
               Ejecución inconsistente.
             </h2>
           </div>
-          <p class="body-text text-xl max-w-xl">
+          <p class="body-text text-xl max-w-xl" data-i18n="prob_desc">
             Las operaciones complejas requieren visibilidad integrada. Sin esto, cada sistema funciona en silos, generando retrasos que BlackPoint elimina con arquitectura líquida.
           </p>
         </div>
@@ -721,28 +879,28 @@
           <div class="card-base stagger-child !p-10">
             <div class="tech-tag">
               <span class="status-dot warning pulse"></span>
-              <span>Fractura</span>
+              <span data-i18n="prob_tag_1">Fractura</span>
             </div>
-            <h3 class="text-2xl font-bold mb-4">Silos</h3>
-            <p class="text-sm opacity-80 leading-relaxed">Sistemas que no se hablan.</p>
+            <h3 class="text-2xl font-bold mb-4 dark:text-white" data-i18n="prob_silos_t">Silos</h3>
+            <p class="text-sm opacity-80 leading-relaxed" data-i18n="prob_silos_d">Sistemas que no se hablan.</p>
           </div>
 
           <div class="card-base stagger-child !p-10" style="animation-delay: 0.1s">
             <div class="tech-tag">
               <span class="status-dot warning"></span>
-              <span>48h+</span>
+              <span data-i18n="prob_tag_2">48h+</span>
             </div>
-             <h3 class="text-2xl font-bold mb-4">Delay</h3>
-            <p class="text-sm opacity-80 leading-relaxed">Información que llega tarde.</p>
+             <h3 class="text-2xl font-bold mb-4 dark:text-white" data-i18n="prob_delay_t">Delay</h3>
+            <p class="text-sm opacity-80 leading-relaxed" data-i18n="prob_delay_d">Información que llega tarde.</p>
           </div>
 
           <div class="card-base stagger-child !p-10" style="animation-delay: 0.2s">
             <div class="tech-tag">
               <span class="status-dot"></span>
-              <span>Drift</span>
+              <span data-i18n="prob_tag_3">Drift</span>
             </div>
-             <h3 class="text-2xl font-bold mb-4">Chaos</h3>
-            <p class="text-sm opacity-80 leading-relaxed">Ejecución sin lógica central.</p>
+             <h3 class="text-2xl font-bold mb-4 dark:text-white" data-i18n="prob_chaos_t">Chaos</h3>
+            <p class="text-sm opacity-80 leading-relaxed" data-i18n="prob_chaos_d">Ejecución sin lógica central.</p>
           </div>
         </div>
       </div>
@@ -750,9 +908,45 @@
   </section>
 
   <!-- Process Section -->
-  <section id="proceso" class="relative bg-secondary py-40">
-    <div class="max-w-6xl mx-auto px-10 text-center">
-      <h2 class="reveal-text tracking-tighter mb-0">Diagnóstico primero. Integración después.</h2>
+  <section id="proceso" class="relative bg-secondary section-padding">
+    <div class="max-w-6xl mx-auto px-10">
+      <div class="text-center mb-24">
+        <h2 class="reveal-text tracking-tighter mb-0" data-i18n="phil_title">Diagnóstico primero. Integración después.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Step 1 -->
+        <div class="card-base !p-10 stagger-child">
+          <div class="mono-label mb-6 text-accent">01</div>
+          <h3 class="text-2xl font-bold mb-4 dark:text-white" data-i18n="proc_1_t">Mapeo</h3>
+          <p class="text-sm opacity-80 leading-relaxed" data-i18n="proc_1_d">Cartografiamos tu arquitectura operativa. Identificamos fracturas.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="card-base !p-10 stagger-child" style="animation-delay: 0.1s">
+          <div class="mono-label mb-6 text-accent">02</div>
+          <h3 class="text-2xl font-bold mb-4 dark:text-white" data-i18n="proc_2_t">Estructura</h3>
+          <p class="text-sm opacity-80 leading-relaxed" data-i18n="proc_2_d">Definimos flujos de datos y lógica de negocio. Reducimos ruido, exponemos verdad.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="card-base !p-10 stagger-child" style="animation-delay: 0.2s">
+          <div class="mono-label mb-6 text-accent">03</div>
+          <h3 class="text-2xl font-bold mb-4 dark:text-white" data-i18n="proc_3_t">Integración</h3>
+          <p class="text-sm opacity-80 leading-relaxed" data-i18n="proc_3_d">Conectamos sistemas críticos en fases. Cada integración es un logro.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="card-base !p-10 stagger-child" style="animation-delay: 0.3s">
+          <div class="mono-label mb-6 text-accent">04</div>
+          <h3 class="text-2xl font-bold mb-4 dark:text-white" data-i18n="proc_4_t">Calibración</h3>
+          <p class="text-sm opacity-80 leading-relaxed" data-i18n="proc_4_d">Ajustamos en producción. Medimos, aprendemos, escalamos.</p>
+        </div>
+      </div>
+
+      <div class="mt-20 text-center">
+          <a href="#contact" class="btn btn-primary px-10 py-5 text-lg" data-i18n="proc_cta">Comenzar Mapeo Estructurado</a>
+      </div>
     </div>
   </section>
   
@@ -760,8 +954,8 @@
   <section id="servicios" class="relative bg-white section-padding border-y border-gray-100">
     <div class="max-w-[1400px] mx-auto px-10">
       <div class="max-w-3xl mb-16">
-        <h2 class="tracking-tighter mb-8 reveal-text">Sistemas que integramos</h2>
-        <p class="body-text text-xl">Cada módulo resuelve un punto de fractura específico. Nada es genérico. Todo es medible.</p>
+        <h2 class="tracking-tighter mb-8 reveal-text" data-i18n="serv_title">Sistemas que integramos</h2>
+        <p class="body-text text-xl section-subtitle" data-i18n="serv_subtitle">Cada módulo resuelve un punto de fractura específico. Nada es genérico. Todo es medible.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -775,19 +969,19 @@
             </div>
             <span class="text-[9px] font-mono text-gray-400 opacity-60">VOX-CORE-01</span>
           </div>
-          <h3 class="font-black text-xl text-[#1A1A1A] mb-5 tracking-tight">Agentes de Voz</h3>
+          <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_1_t">Agentes de Voz</h3>
           <div class="space-y-4">
             <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
               <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              Atención telefónica automatizada 24/7 inbound y outbound.
+              <span data-i18n="serv_1_d1">Atención telefónica automatizada 24/7 inbound y outbound.</span>
             </p>
             <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
               <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              Reservas, confirmaciones y seguimiento sin intervención humana.
+              <span data-i18n="serv_1_d2">Reservas, confirmaciones y seguimiento sin intervención humana.</span>
             </p>
             <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
               <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              Análisis automático de sentimiento y contexto de cada conversación.
+              <span data-i18n="serv_1_d3">Análisis automático de sentimiento y contexto de cada conversación.</span>
             </p>
           </div>
         </div>
@@ -802,19 +996,19 @@
             </div>
             <span class="text-[9px] font-mono text-gray-400 opacity-60">HUB-SYNC-B2B</span>
           </div>
-          <h3 class="font-black text-xl text-[#1A1A1A] mb-5 tracking-tight">Automatización de Outreach</h3>
+          <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_2_t">Automatización de Outreach</h3>
           <div class="space-y-4">
             <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
               <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              Secuencias multicanal orquestadas sin intervención manual.
+              <span data-i18n="serv_2_d1">Secuencias multicanal orquestadas sin intervención manual.</span>
             </p>
             <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
               <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              Personalización avanzada por perfil de decisor y sector.
+              <span data-i18n="serv_2_d2">Personalización avanzada por perfil de decisor y sector.</span>
             </p>
             <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
               <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              Sincronización directa y enriquecimiento de datos en el CRM.
+              <span data-i18n="serv_2_d3">Sincronización directa y enriquecimiento de datos en el CRM.</span>
             </p>
           </div>
         </div>
@@ -829,19 +1023,19 @@
             </div>
             <span class="text-[9px] font-mono text-gray-400 opacity-60">QUAL-SCAN-04</span>
           </div>
-          <h3 class="font-black text-xl text-[#1A1A1A] mb-5 tracking-tight">Cualificación Inteligente</h3>
+          <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_3_t">Cualificación Inteligente</h3>
           <div class="space-y-4">
             <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
               <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              Flujos automáticos de validación y scoring de leads.
+              <span data-i18n="serv_3_d1">Flujos automáticos de validación y scoring de leads.</span>
             </p>
             <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
               <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              Escalamiento por prioridad en tiempo real.
+              <span data-i18n="serv_3_d2">Escalamiento por prioridad en tiempo real.</span>
             </p>
             <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
               <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              Reducción drástica del tiempo hasta la primera respuesta.
+              <span data-i18n="serv_3_d3">Reducción drástica del tiempo hasta la primera respuesta.</span>
             </p>
           </div>
         </div>
@@ -856,21 +1050,21 @@
             </div>
             <span class="text-[9px] font-mono text-gray-400 opacity-60">REP-ALGO-V2</span>
           </div>
-          <h3 class="font-black text-xl text-[#1A1A1A] mb-5 tracking-tight">Consolidación de Reporting</h3>
+          <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_4_t">Consolidación de Reporting</h3>
           <div class="space-y-4">
             <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
               <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              Agregación automática de datos operativos disparatados.
+              <span data-i18n="serv_4_d1">Agregación automática de datos operativos disparatados.</span>
             </p>
             <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
               <span class="text-accent mt-1.5 flex-shrink-0">
                 <svg class="w-1.5 h-1.5" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3"/></svg>
               </span>
-              Detección de anomalías y varianzas estadísticas.
+              <span data-i18n="serv_4_d2">Detección de anomalías y varianzas estadísticas.</span>
             </p>
             <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
               <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              Informes ejecutivos listos sin compilación manual.
+              <span data-i18n="serv_4_d3">Informes ejecutivos listos sin compilación manual.</span>
             </p>
           </div>
         </div>
@@ -885,19 +1079,19 @@
             </div>
             <span class="text-[9px] font-mono text-gray-400 opacity-60">SUP-NODE-ASYNC</span>
           </div>
-          <h3 class="font-black text-xl text-[#1A1A1A] mb-5 tracking-tight">Automatización de Soporte</h3>
+          <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_5_t">Automatización de Soporte</h3>
           <div class="space-y-4">
             <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
               <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              Respuestas inmediatas 24/7 en canales unificados.
+              <span data-i18n="serv_5_d1">Respuestas inmediatas 24/7 en canales unificados.</span>
             </p>
             <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
               <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              Clasificación y routing automático de tickets críticos.
+              <span data-i18n="serv_5_d2">Clasificación y routing automático de tickets críticos.</span>
             </p>
             <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
               <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              Reducción drástica de carga en equipos humanos.
+              <span data-i18n="serv_5_d3">Reducción drástica de carga en equipos humanos.</span>
             </p>
           </div>
         </div>
@@ -912,19 +1106,19 @@
             </div>
             <span class="text-[9px] font-mono text-gray-400 opacity-60">INTERNAL-FLOW-X</span>
           </div>
-          <h3 class="font-black text-xl text-[#1A1A1A] mb-5 tracking-tight">Procesos Internos</h3>
+          <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_6_t">Procesos Internos</h3>
           <div class="space-y-4">
             <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
               <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              Automatización de flujos repetitivos y conciliaciones.
+              <span data-i18n="serv_6_d1">Automatización de flujos repetitivos y conciliaciones.</span>
             </p>
             <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
               <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              Conexión entre sistemas internos sin desarrollo custom.
+              <span data-i18n="serv_6_d2">Conexión entre sistemas internos sin desarrollo custom.</span>
             </p>
             <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
               <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              Diseño a medida según la arquitectura existente.
+              <span data-i18n="serv_6_d3">Diseño a medida según la arquitectura existente.</span>
             </p>
           </div>
         </div>
@@ -937,8 +1131,8 @@
     <div class="max-w-[1400px] mx-auto px-10">
       <div class="flex flex-col lg:flex-row justify-between items-end mb-24 gap-8">
         <div class="max-w-2xl">
-            <h2 class="tracking-tighter mb-8">Lo que construimos contigo</h2>
-            <p class="body-text text-xl mb-0">
+            <h2 class="tracking-tighter mb-8" data-i18n="bento_title">Lo que construimos contigo</h2>
+            <p class="body-text text-xl mb-0" data-i18n="bento_desc">
                 No instalamos herramientas. Instalamos sistemas. Cada componente que agregamos resuelve un punto de fractura específico con precisión arquitectónica.
             </p>
         </div>
@@ -950,29 +1144,29 @@
           <div class="bento-card lg:col-span-2 stagger-child">
             <div class="tech-tag">
               <span class="status-dot active pulse"></span>
-              <span>Sync: Real-Time</span>
+              <span data-i18n="bento_tag_1">Sync: Real-Time</span>
             </div>
-            <div class="mono-label mb-6 text-[#B8A020]">Sistemas de Visibilidad</div>
-            <h3 class="text-3xl font-black mb-6 tracking-tight">Visibilidad Estratégica en Tiempo Real</h3>
+            <div class="mono-label mb-6 text-[#B8A020]" data-i18n="bento_label_1">Sistemas de Visibilidad</div>
+            <h3 class="text-3xl font-black mb-6 tracking-tight" data-i18n="bento_1_t">Visibilidad Estratégica en Tiempo Real</h3>
             <div class="grid md:grid-cols-2 gap-10">
                <ul class="space-y-4 text-gray-500">
                   <li class="flex items-start gap-3">
                     <span class="text-accent">•</span>
-                    <span>Estado operativo visible en un dashboard unificado</span>
+                    <span data-i18n="bento_1_d1">Estado operativo visible en un dashboard unificado</span>
                   </li>
                   <li class="flex items-start gap-3">
                     <span class="text-accent">•</span>
-                    <span>Alertas predictivas antes de que fallen los procesos</span>
+                    <span data-i18n="bento_1_d2">Alertas predictivas antes de que fallen los procesos</span>
                   </li>
                </ul>
                <ul class="space-y-4 text-gray-500">
                   <li class="flex items-start gap-3">
                     <span class="text-accent">•</span>
-                    <span>Acciones contextuales para cada anomalía detectada</span>
+                    <span data-i18n="bento_1_d3">Acciones contextuales para cada anomalía detectada</span>
                   </li>
                   <li class="flex items-start gap-3">
                     <span class="text-accent">•</span>
-                    <span>Reportes automáticos de deuda operativa</span>
+                    <span data-i18n="bento_1_d4">Reportes automáticos de deuda operativa</span>
                   </li>
                </ul>
             </div>
@@ -981,22 +1175,22 @@
           <div class="bento-card stagger-child" style="animation-delay: 0.1s">
             <div class="tech-tag">
               <span class="status-dot active"></span>
-              <span>Latency: 12ms</span>
+              <span data-i18n="bento_tag_2">Latency: 12ms</span>
             </div>
-            <div class="mono-label mb-6 text-[#B8A020]">Engagement</div>
-            <h3 class="text-2xl font-black mb-6 tracking-tight">Automatización de Contacto</h3>
+            <div class="mono-label mb-6 text-[#B8A020]" data-i18n="ser_eng_label">Engagement</div>
+            <h3 class="text-2xl font-black mb-6 tracking-tight" data-i18n="bento_2_t">Automatización de Contacto</h3>
             <ul class="space-y-4 text-gray-500 text-sm">
               <li class="flex items-start gap-3">
                 <span class="text-accent">•</span>
-                <span>Secuencias sin intervención manual 24/7</span>
+                <span data-i18n="bento_2_d1">Secuencias sin intervención manual 24/7</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-accent">•</span>
-                <span>Sincronización directa bidireccional CRM</span>
+                <span data-i18n="bento_2_d2">Sincronización directa bidireccional CRM</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-accent">•</span>
-                <span>Enriquecimiento de datos en tiempo real</span>
+                <span data-i18n="bento_2_d3">Enriquecimiento de datos en tiempo real</span>
               </li>
             </ul>
           </div>
@@ -1004,33 +1198,33 @@
           <div class="bento-card stagger-child" style="animation-delay: 0.2s">
              <div class="tech-tag">
               <span class="status-dot active"></span>
-              <span>Propagación</span>
+              <span data-i18n="bento_tag_3">Propagación</span>
             </div>
-            <div class="mono-label mb-6 text-[#B8A020]">Contenido</div>
-            <h3 class="text-2xl font-black mb-6 tracking-tight">Relevancia Adaptativa</h3>
+            <div class="mono-label mb-6 text-[#B8A020]" data-i18n="bento_label_3">Contenido</div>
+            <h3 class="text-2xl font-black mb-6 tracking-tight" data-i18n="bento_3_t">Relevancia Adaptativa</h3>
             <ul class="space-y-4 text-gray-500 text-sm">
               <li class="flex items-start gap-3">
                 <span class="text-accent">•</span>
-                <span>Adaptación dinámica al ciclo de venta</span>
+                <span data-i18n="bento_3_d1">Adaptación dinámica al ciclo de venta</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-accent">•</span>
-                <span>Multicanalidad orquestada por IA</span>
+                <span data-i18n="bento_3_d2">Multicanalidad orquestada por IA</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="text-accent">•</span>
-                <span>Medición de impacto ROI real</span>
+                <span data-i18n="bento_3_d3">Medición de impacto ROI real</span>
               </li>
             </ul>
           </div>
 
           <div class="bento-card lg:col-span-2 stagger-child" style="animation-delay: 0.3s">
-            <div class="flex flex-col md:flex-row justify-between items-center bg-gray-50 rounded-xl p-8 gap-8">
+            <div id="next-level-cta" data-section="cta-highlight" class="flex flex-col md:flex-row justify-between items-center bg-gray-50 dark:bg-[#1A1A1A] dark:border dark:border-white/10 rounded-xl p-8 gap-8 cta-box">
                 <div>
-                   <h4 class="text-xl font-bold mb-2">¿Listo para el siguiente nivel?</h4>
-                   <p class="text-sm text-gray-500">Analizamos tu arquitectura actual sin compromiso.</p>
+                   <h4 class="text-xl font-bold mb-2 dark:text-white" data-i18n="bento_cta_t">¿Listo para el siguiente nivel?</h4>
+                   <p class="text-sm text-gray-500 dark:text-gray-300" data-i18n="bento_cta_d">Analizamos tu arquitectura actual sin compromiso.</p>
                 </div>
-                <a href="#contact" class="btn btn-primary whitespace-nowrap">Solicitar Diagnóstico</a>
+                <a href="#contact" class="btn btn-primary whitespace-nowrap" data-i18n="cta_diagnose">Solicitar Diagnóstico</a>
             </div>
           </div>
       </div>
@@ -1040,53 +1234,53 @@
   <!-- Fit Section -->
   <section class="relative bg-secondary section-padding">
     <div class="max-w-6xl mx-auto">
-      <h2 class="mb-16">Para quién es BlackPoint</h2>
+      <h2 class="mb-16" data-i18n="fit_title">Para quién es BlackPoint</h2>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
         <div>
-          <h3 class="text-xl font-bold text-accent mb-8">Encaja con BlackPoint</h3>
+          <h3 class="text-xl font-bold text-accent mb-8" data-i18n="fit_yes_t">Encaja con BlackPoint</h3>
           <ul class="space-y-4">
             <li class="flex gap-4 pb-4 border-b border-subtle">
               <span class="text-accent text-xl flex-shrink-0">✓</span>
-              <span>Operaciones B2B con flujos complejos</span>
+              <span data-i18n="fit_yes_d1">Operaciones B2B con flujos complejos</span>
             </li>
             <li class="flex gap-4 pb-4 border-b border-subtle">
               <span class="text-accent text-xl flex-shrink-0">✓</span>
-              <span>Múltiples sistemas legacy + nuevos en paralelo</span>
+              <span data-i18n="fit_yes_d2">Múltiples sistemas legacy + nuevos en paralelo</span>
             </li>
             <li class="flex gap-4 pb-4 border-b border-subtle">
               <span class="text-accent text-xl flex-shrink-0">✓</span>
-              <span>Decisiones que requieren datos integrados</span>
+              <span data-i18n="fit_yes_d3">Decisiones que requieren datos integrados</span>
             </li>
             <li class="flex gap-4 pb-4 border-b border-subtle">
               <span class="text-accent text-xl flex-shrink-0">✓</span>
-              <span>Equipos distribuidos entre sales, ops, producto</span>
+              <span data-i18n="fit_yes_d4">Equipos distribuidos entre sales, ops, producto</span>
             </li>
             <li class="flex gap-4">
               <span class="text-accent text-xl flex-shrink-0">✓</span>
-              <span>Crecimiento sostenido es prioridad, no urgencia táctica</span>
+              <span data-i18n="fit_yes_d5">Crecimiento sostenido es prioridad, no urgencia táctica</span>
             </li>
           </ul>
         </div>
 
         <div>
-          <h3 class="text-xl font-bold text-muted mb-8">No es para</h3>
+          <h3 class="text-xl font-bold text-muted mb-8" data-i18n="fit_no_t">No es para</h3>
           <ul class="space-y-4">
             <li class="flex gap-4 pb-4 border-b border-subtle">
               <span class="text-muted text-xl flex-shrink-0">–</span>
-              <span class="text-muted">Startups en fase MVP (aún sin datos operativos)</span>
+              <span class="text-muted" data-i18n="fit_no_d1">Startups en fase MVP (aún sin datos operativos)</span>
             </li>
             <li class="flex gap-4 pb-4 border-b border-subtle">
               <span class="text-muted text-xl flex-shrink-0">–</span>
-              <span class="text-muted">Organizaciones buscando "herramienta barata rápida"</span>
+              <span class="text-muted" data-i18n="fit_no_d2">Organizaciones buscando 'herramienta barata rápida'</span>
             </li>
             <li class="flex gap-4 pb-4 border-b border-subtle">
               <span class="text-muted text-xl flex-shrink-0">–</span>
-              <span class="text-muted">Equipos sin dueño claro de la integración</span>
+              <span class="text-muted" data-i18n="fit_no_d3">Equipos sin dueño claro de la integración</span>
             </li>
             <li class="flex gap-4">
               <span class="text-muted text-xl flex-shrink-0">–</span>
-              <span class="text-muted">Empresas que no miden el impacto de sus decisiones</span>
+              <span class="text-muted" data-i18n="fit_no_d4">Empresas que no miden el impacto de sus decisiones</span>
             </li>
           </ul>
         </div>
@@ -1097,37 +1291,37 @@
   <!-- Metrics Section -->
   <section id="metricas" class="relative bg-primary section-padding">
     <div class="max-w-6xl mx-auto">
-      <h2 class="mb-16">Por los números</h2>
+      <h2 class="mb-16" data-i18n="met_title">Por los números</h2>
 
       <div class="overflow-x-auto">
         <table class="metrics-table">
           <thead>
             <tr>
-              <th>Métrica</th>
-              <th>Operación Manual</th>
-              <th>Con BlackPoint</th>
+              <th data-i18n="met_h_1">Métrica</th>
+              <th data-i18n="met_h_2">Operación Manual</th>
+              <th data-i18n="met_h_3">Con BlackPoint</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Latencia de Datos</td>
-              <td>48+ horas</td>
-              <td class="highlight text-[#10B981]">Horas, no días</td>
+              <td class="dark:text-gray-200" data-i18n="met_r1_c1">Latencia de Datos</td>
+              <td class="dark:text-gray-200" data-i18n="met_r1_c2">48+ horas</td>
+              <td class="highlight" data-i18n="met_r1_c3">Horas, no días</td>
             </tr>
             <tr>
-              <td>Procesamiento Manual</td>
-              <td>120h/mes</td>
-              <td class="highlight text-[#10B981]">Fracción del tiempo actual</td>
+              <td class="dark:text-gray-200" data-i18n="met_r2_c1">Procesamiento Manual</td>
+              <td class="dark:text-gray-200" data-i18n="met_r2_c2">120h/mes</td>
+              <td class="highlight" data-i18n="met_r2_c3">Fracción del tiempo actual</td>
             </tr>
             <tr>
-              <td>Fuga de Contexto</td>
-              <td>35% por etapa</td>
-              <td class="highlight text-[#10B981]">Trazabilidad completa entre sistemas</td>
+              <td class="dark:text-gray-200" data-i18n="met_r3_c1">Fuga de Contexto</td>
+              <td class="dark:text-gray-200" data-i18n="met_r3_c2">35% por etapa</td>
+              <td class="highlight" data-i18n="met_r3_c3">Trazabilidad completa entre sistemas</td>
             </tr>
             <tr>
-              <td>Decisión Predictiva</td>
-              <td>No existente</td>
-              <td class="highlight text-[#10B981]">Visibilidad estructurada para decisiones informadas</td>
+              <td class="dark:text-gray-200" data-i18n="met_r4_c1">Decisión Predictiva</td>
+              <td class="dark:text-gray-200" data-i18n="met_r4_c2">No existente</td>
+              <td class="highlight" data-i18n="met_r4_c3">Visibilidad estructurada para decisiones informadas</td>
             </tr>
           </tbody>
         </table>
@@ -1135,40 +1329,72 @@
     </div>
   </section>
 
+  <!-- FAQ Section -->
+  <section id="faq" class="relative bg-primary section-padding">
+    <div class="max-w-[1400px] mx-auto px-10">
+      <div class="max-w-3xl mb-24">
+        <h2 class="tracking-tighter mb-8 reveal-text text-accent" data-i18n="faq_title">Zero Bullshit.</h2>
+        <p class="body-text text-xl" data-i18n="faq_sub">Respuestas directas para decisiones tácticas.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="card-base stagger-child">
+          <h3 class="text-xl font-semibold mb-4 dark:text-white" data-i18n="faq_1_q">¿Por qué no venden herramientas?</h3>
+          <p class="text-sm opacity-80 leading-relaxed body-text" data-i18n="faq_1_a">Porque las herramientas son tácticas; la inteligencia es estratégica. No instalamos software aislados, instalamos sistemas de decisión integrales.</p>
+        </div>
+
+        <div class="card-base stagger-child">
+          <h3 class="text-xl font-semibold mb-4 dark:text-white" data-i18n="faq_2_q">¿Sustituyen a mi equipo de tecnología?</h3>
+          <p class="text-sm opacity-80 leading-relaxed body-text" data-i18n="faq_2_a">Al contrario. Eliminamos la carga de mantenimiento operativa para que su equipo pueda enfocarse en el core técnico de su negocio.</p>
+        </div>
+
+        <div class="card-base stagger-child">
+          <h3 class="text-xl font-semibold mb-4 dark:text-white" data-i18n="faq_3_q">¿Qué tan rápido vemos resultados?</h3>
+          <p class="text-sm opacity-80 leading-relaxed body-text" data-i18n="faq_3_a">Resultados rápidos en 7 días, sistemas funcionales en 14, y despliegues completos con impacto medible en 30 días. Integraciones de mayor escala se adaptan al contexto.</p>
+        </div>
+
+        <div class="card-base stagger-child">
+          <h3 class="text-xl font-semibold mb-4 dark:text-white" data-i18n="faq_4_q">¿Qué pasa con mis datos legacy?</h3>
+          <p class="text-sm opacity-80 leading-relaxed body-text" data-i18n="faq_4_a">Los integramos. Nadie empieza de cero; nosotros cartografiamos el caos actual para convertirlo en una estructura escalable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact Section -->
   <section id="contact" class="relative bg-secondary section-padding">
     <div class="max-w-2xl mx-auto">
-      <h2 class="text-center mb-16">Solicitar Diagnóstico</h2>
+      <h2 class="text-center mb-16" data-i18n="cont_title">Solicitar Diagnóstico</h2>
 
       <!-- Contact Form -->
       <form id="contactForm" class="mt-16 fade-in-up">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="form-group">
-            <label for="name">Nombre</label>
-            <input type="text" id="name" name="name" required placeholder="Tu nombre">
+            <label for="name" data-i18n="cont_name">Nombre</label>
+            <input type="text" id="name" name="name" required placeholder="Tu nombre" data-i18n-placeholder="cont_name_ph">
           </div>
 
           <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+            <label for="email" data-i18n="cont_email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="tu@email.com" data-i18n-placeholder="cont_email_ph">
           </div>
         </div>
 
         <div class="form-group">
-          <label for="company">Empresa</label>
-          <input type="text" id="company" name="company" required placeholder="Nombre de tu empresa">
+          <label for="company" data-i18n="cont_comp">Empresa</label>
+          <input type="text" id="company" name="company" required placeholder="Nombre de tu empresa" data-i18n-placeholder="cont_comp_ph">
         </div>
 
         <div class="form-group">
-          <label for="message">Mensaje</label>
-          <textarea id="message" name="message" required placeholder="¿En qué podemos ayudarte?"></textarea>
+          <label for="message" data-i18n="cont_msg">Mensaje</label>
+          <textarea id="message" name="message" required placeholder="¿En qué podemos ayudarte?" data-i18n-placeholder="cont_msg_ph"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary w-full py-4 text-lg">Enviar</button>
+        <button type="submit" class="btn btn-primary w-full py-4 text-lg" data-i18n="cont_btn">Enviar</button>
       </form>
 
       <div class="mt-12 pt-12 border-t border-gray-200 text-center">
-        <p class="text-gray-500 mb-4">O escríbenos directamente a:</p>
+        <p class="text-gray-500 mb-4" data-i18n="cont_direct">O escríbenos directamente a:</p>
         <a href="mailto:team@blackpoint.systems" class="text-gray-900 font-bold hover:text-accent transition-colors">team@blackpoint.systems</a>
         <div class="mt-8">
             <a href="#" class="text-gray-400 hover:text-gray-900 flex items-center justify-center gap-2 text-sm">
@@ -1183,9 +1409,9 @@
   <!-- Confirmation Modal -->
   <div class="modal" id="confirmationModal">
     <div class="modal-content">
-      <h3 class="text-2xl font-bold mb-4">Recibido</h3>
-      <p class="text-muted mb-8">Nos pondremos en contacto en 24 horas.</p>
-      <button class="btn btn-primary w-full" onclick="location.href='#'">Volver al inicio</button>
+      <h3 class="text-2xl font-bold mb-4" data-i18n="conf_title">Recibido</h3>
+      <p class="text-muted mb-8" data-i18n="conf_desc">Nos pondremos en contacto en 24 horas.</p>
+      <button class="btn btn-primary w-full" onclick="location.href='#'" data-i18n="conf_btn">Volver al inicio</button>
     </div>
   </div>
 
@@ -1193,32 +1419,32 @@
   <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"></button>
 
   <!-- Footer -->
-  <footer class="relative bg-gray-50 border-t border-gray-200 py-24 pb-32 overflow-hidden">
+  <footer class="relative py-24 pb-32 overflow-hidden border-t" style="background-color: var(--bg-footer, var(--bg-primary)); border-color: var(--border-subtle);">
     <div class="footer-watermark">BLACKPOINT</div>
     <div class="max-w-[1400px] mx-auto px-10 relative z-10">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 items-start">
         <div class="col-span-1 lg:col-span-2">
-            <div class="font-bold tracking-[0.2em] uppercase text-gray-900 text-2xl mb-4">BLACKPOINT</div>
+            <div class="font-bold tracking-[0.2em] uppercase text-gray-900 text-2xl mb-4 brand">BLACKPOINT</div>
             <p class="text-gray-500 max-w-sm mb-8 leading-relaxed">Intelligence & Systems integration for high-complexity B2B operations.</p>
             <div class="flex gap-4">
-                <div class="tech-tag !static !opacity-100 bg-white border border-gray-100 rounded px-3 py-1.5 shadow-sm">
+                <div class="tech-tag !static !opacity-100 bg-white border border-gray-100 rounded px-3 py-1.5 shadow-sm badge">
                     <span class="status-dot active pulse"></span>
                     <span>System: Online</span>
                 </div>
-                <div class="tech-tag !static !opacity-100 bg-white border border-gray-100 rounded px-3 py-1.5 shadow-sm">
+                <div class="tech-tag !static !opacity-100 bg-white border border-gray-100 rounded px-3 py-1.5 shadow-sm badge">
                     <span>2.1.0-STABLE</span>
                 </div>
             </div>
         </div>
 
         <div>
-            <div class="mono-label mb-6 text-gray-900 border-b border-gray-200 pb-2">Navegación</div>
+            <div class="mono-label mb-6 text-gray-900 border-b border-gray-200 pb-2 section-label" data-i18n="nav_footer_title">Navegación</div>
             <ul class="space-y-4 text-sm text-gray-500">
-                <li><a href="#proceso" class="hover:text-accent transition-colors">Nuestro Proceso</a></li>
-                <li><a href="#servicios" class="hover:text-accent transition-colors">Servicios Integrados</a></li>
-                <li><a href="#metricas" class="hover:text-accent transition-colors">Métricas de Impacto</a></li>
-                <li><a href="contacto/" class="hover:text-accent transition-colors">Página de Contacto</a></li>
-                <li><a href="#contact" class="hover:text-accent transition-colors">Solicitar Diagnóstico</a></li>
+                <li><a href="#proceso" class="hover:text-accent transition-colors" data-i18n="nav_footer_1">Nuestro Proceso</a></li>
+                <li><a href="#servicios" class="hover:text-accent transition-colors" data-i18n="nav_footer_2">Servicios Integrados</a></li>
+                <li><a href="#metricas" class="hover:text-accent transition-colors" data-i18n="nav_footer_3">Métricas de Impacto</a></li>
+                <li><a href="contacto/" class="hover:text-accent transition-colors" data-i18n="nav_footer_4">Página de Contacto</a></li>
+                <li><a href="#contact" class="hover:text-accent transition-colors" data-i18n="nav_footer_5">Solicitar Diagnóstico</a></li>
             </ul>
         </div>
 
@@ -1436,6 +1662,331 @@
 
     resizeCanvas();
     initParticles();
+    // ============ TRANSLATIONS ============
+    const translations = {
+      ES: {
+        nav_process: "Proceso",
+        nav_services: "Servicios",
+        nav_metrics: "Métricas",
+        nav_contact: "Contacto",
+        cta_diagnose: "Solicitar Diagnóstico",
+        hero_firm: "Systems & Intelligence Firm",
+        hero_title: "Instalamos inteligencia",
+        hero_subtitle: "donde el negocio pierde control.",
+        hero_description: "Firma de integración de sistemas para operaciones B2B complejas.",
+        prob_title: "Datos fragmentados. Decisiones lentas. Ejecución inconsistente.",
+        prob_desc: "Las operaciones complejas requieren visibilidad integrada. Sin esto, cada sistema funciona en silos, generando retrasos que BlackPoint elimina con arquitectura líquida.",
+        prob_silos_t: "Silos",
+        prob_silos_d: "Sistemas que no se hablan.",
+        prob_delay_t: "Delay",
+        prob_delay_d: "Información que llega tarde.",
+        prob_chaos_t: "Chaos",
+        prob_chaos_d: "Ejecución sin lógica central.",
+        prob_tag_1: "Fractura",
+        prob_tag_2: "48h+",
+        prob_tag_3: "Drift",
+        hero_scroll: "Desplazar",
+        phil_title: "Diagnóstico primero. Integración después.",
+        proc_1_t: "Mapeo",
+        proc_1_d: "Cartografiamos tu arquitectura operativa. Identificamos fracturas.",
+        proc_2_t: "Estructura",
+        proc_2_d: "Definimos flujos de datos y lógica de negocio. Reducimos ruido, exponemos verdad.",
+        proc_3_t: "Integración",
+        proc_3_d: "Conectamos sistemas críticos en fases. Cada integración es un logro.",
+        proc_4_t: "Calibración",
+        proc_4_d: "Ajustamos en producción. Medimos, aprendemos, escalamos.",
+        proc_cta: "Comenzar Mapeo Estructurado",
+        serv_title: "Sistemas que integramos",
+        serv_subtitle: "Cada módulo resuelve un punto de fractura específico. Nada es genérico. Todo es medible.",
+        serv_1_t: "Agentes de Voz",
+        serv_1_d1: "Atención telefónica automatizada 24/7 inbound y outbound.",
+        serv_1_d2: "Reservas, confirmaciones y seguimiento sin intervención humana.",
+        serv_1_d3: "Análisis automático de sentimiento y contexto de cada conversación.",
+        serv_2_t: "Automatización de Outreach",
+        serv_2_d1: "Secuencias multicanal orquestadas sin intervención manual.",
+        serv_2_d2: "Personalización avanzada por perfil de decisor y sector.",
+        serv_2_d3: "Sincronización directa y enriquecimiento de datos en el CRM.",
+        serv_3_t: "Cualificación Inteligente",
+        serv_3_d1: "Flujos automáticos de validación y scoring de leads.",
+        serv_3_d2: "Escalamiento por prioridad en tiempo real.",
+        serv_3_d3: "Reducción drástica del tiempo hasta la primera respuesta.",
+        serv_4_t: "Consolidación de Reporting",
+        serv_4_d1: "Agregación automática de datos operativos disparatados.",
+        serv_4_d2: "Detección de anomalías y varianzas estadísticas.",
+        serv_4_d3: "Informes ejecutivos listos sin compilación manual.",
+        serv_5_t: "Automatización de Soporte",
+        serv_5_d1: "Respuestas inmediatas 24/7 en canales unificados.",
+        serv_5_d2: "Clasificación y routing automático de tickets críticos.",
+        serv_5_d3: "Reducción drástica de carga en equipos humanos.",
+        serv_6_t: "Procesos Internos",
+        serv_6_d1: "Automatización de flujos repetitivos y conciliaciones.",
+        serv_6_d2: "Conexión entre sistemas internos sin desarrollo custom.",
+        serv_6_d3: "Diseño a medida según la arquitectura existente.",
+        bento_title: "Lo que construimos contigo",
+        bento_desc: "No instalamos herramientas. Instalamos sistemas. Cada componente que agregamos resuelve un punto de fractura específico con precisión arquitectónica.",
+        bento_1_t: "Visibilidad Estratégica en Tiempo Real",
+        bento_1_d1: "Estado operativo visible en un dashboard unificado",
+        bento_1_d2: "Alertas predictivas antes de que fallen los procesos",
+        bento_1_d3: "Acciones contextuales para cada anomalía detectada",
+        bento_1_d4: "Reportes automáticos de deuda operativa",
+        bento_2_t: "Automatización de Contacto",
+        bento_2_d1: "Secuencias sin intervención manual 24/7",
+        bento_2_d2: "Sincronización directa bidireccional CRM",
+        bento_2_d3: "Enriquecimiento de datos en tiempo real",
+        bento_3_t: "Relevancia Adaptativa",
+        bento_3_d1: "Adaptación dinámica al ciclo de venta",
+        bento_3_d2: "Multicanalidad orquestada por IA",
+        bento_3_d3: "Medición de impacto ROI real",
+        bento_cta_t: "¿Listo para el siguiente nivel?",
+        bento_cta_d: "Analizamos tu arquitectura actual sin compromiso.",
+        fit_title: "Para quién es BlackPoint",
+        fit_yes_t: "Encaja con BlackPoint",
+        fit_yes_d1: "Operaciones B2B con flujos complejos",
+        fit_yes_d2: "Múltiples sistemas legacy + nuevos en paralelo",
+        fit_yes_d3: "Decisiones que requieren datos integrados",
+        fit_yes_d4: "Equipos distribuidos entre sales, ops, producto",
+        fit_yes_d5: "Crecimiento sostenido es prioridad, no urgencia táctica",
+        fit_no_t: "No es para",
+        fit_no_d1: "Startups en fase MVP (aún sin datos operativos)",
+        fit_no_d2: "Organizaciones buscando 'herramienta barata rápida'",
+        fit_no_d3: "Equipos sin dueño claro de la integración",
+        fit_no_d4: "Empresas que no miden el impacto de sus decisiones",
+        met_title: "Por los números",
+        met_h_1: "Métrica",
+        met_h_2: "Operación Manual",
+        met_h_3: "Con BlackPoint",
+        met_r1_c1: "Latencia de Datos",
+        met_r1_c3: "Horas, no días",
+        met_r2_c1: "Procesamiento Manual",
+        met_r2_c3: "Fracción del tiempo actual",
+        met_r3_c1: "Fuga de Contexto",
+        met_r3_c3: "Trazabilidad completa entre sistemas",
+        met_r4_c1: "Decisión Predictiva",
+        met_r4_c3: "Visibilidad estructurada para decisiones informadas",
+        faq_title: "Zero Bullshit.",
+        faq_sub: "Respuestas directas para decisiones tácticas.",
+        faq_1_q: "¿Por qué no venden herramientas?",
+        faq_1_a: "Porque las herramientas son tácticas; la inteligencia es estratégica. No instalamos software aislados, instalamos sistemas de decisión integrales.",
+        faq_2_q: "¿Sustituyen a mi equipo de tecnología?",
+        faq_2_a: "Al contrario. Eliminamos la carga de mantenimiento operativa para que su equipo pueda enfocarse en el core técnico de su negocio.",
+        faq_3_q: "¿Qué tan rápido vemos resultados?",
+        faq_3_a: "Resultados rápidos en 7 días, sistemas funcionales en 14, y despliegues completos con impacto medible en 30 días. Integraciones de mayor escala se adaptan al contexto.",
+        faq_4_q: "¿Qué pasa con mis datos legacy?",
+        faq_4_a: "Los integramos. Nadie empieza de cero; nosotros cartografiamos el caos actual para convertirlo en una estructura escalable.",
+        cont_title: "Solicitar Diagnóstico",
+        cont_name: "Nombre",
+        cont_name_ph: "Tu nombre",
+        cont_email: "Email",
+        cont_email_ph: "tu@email.com",
+        cont_comp: "Empresa",
+        cont_comp_ph: "Nombre de tu empresa",
+        cont_msg: "Mensaje",
+        cont_msg_ph: "¿En qué podemos ayudarte?",
+        cont_btn: "Enviar",
+        cont_direct: "O escríbenos directamente a:",
+        nav_footer_title: "Navegación",
+        nav_footer_1: "Nuestro Proceso",
+        nav_footer_2: "Servicios Integrados",
+        nav_footer_3: "Métricas de Impacto",
+        nav_footer_4: "Página de Contacto",
+        nav_footer_5: "Solicitar Diagnóstico",
+        conf_title: "Recibido",
+        conf_desc: "Nos pondremos en contacto en 24 horas.",
+        conf_btn: "Volver al inicio",
+        bento_tag_1: "Sync: Tiempo Real",
+        bento_tag_2: "Latencia: 12ms",
+        bento_tag_3: "Propagación",
+        footer_scan_label: "Último escaneo",
+        met_r1_c2: "48+ horas",
+        met_r2_c2: "120h/mes",
+        met_r3_c2: "35% por etapa",
+        met_r4_c2: "No existente",
+      },
+      EN: {
+        nav_process: "Process",
+        nav_services: "Services",
+        nav_metrics: "Metrics",
+        nav_contact: "Contact",
+        cta_diagnose: "Request Diagnosis",
+        hero_title: "We install intelligence",
+        hero_subtitle: "where business loses control.",
+        prob_title: "Fragmented data. Slow decisions. Inconsistent execution.",
+        prob_desc: "Complex operations require integrated visibility. Without it, every system operates in silos, creating delays that BlackPoint eliminates with liquid architecture.",
+        prob_silos_t: "Silos",
+        prob_silos_d: "Systems that don't communicate.",
+        prob_delay_t: "Delay",
+        prob_delay_d: "Information that arrives late.",
+        prob_chaos_t: "Chaos",
+        prob_chaos_d: "Execution without central logic.",
+        prob_tag_1: "Fracture",
+        prob_tag_2: "48h+",
+        prob_tag_3: "Drift",
+        hero_scroll: "Scroll",
+        phil_title: "Diagnosis first. Integration second.",
+        proc_1_t: "Mapping",
+        proc_1_d: "We map your operational architecture. We identify fractures.",
+        proc_2_t: "Structure",
+        proc_2_d: "We define data flows and business logic. We reduce noise, expose truth.",
+        proc_3_t: "Integration",
+        proc_3_d: "We connect critical systems in phases. Every integration is a milestone.",
+        proc_4_t: "Calibration",
+        proc_4_d: "We adjust in production. We measure, learn, scale.",
+        proc_cta: "Start Structured Mapping",
+        serv_title: "Systems we integrate",
+        serv_subtitle: "Each module solves a specific fracture point. Nothing is generic. Everything is measurable.",
+        serv_1_t: "Voice Agents",
+        serv_1_d1: "Automated phone support 24/7 inbound and outbound.",
+        serv_1_d2: "Bookings, confirmations and follow-up without human intervention.",
+        serv_1_d3: "Automatic sentiment and context analysis of every conversation.",
+        serv_2_t: "Outreach Automation",
+        serv_2_d1: "Orchestrated multichannel sequences without manual intervention.",
+        serv_2_d2: "Advanced personalization by decision-maker profile and sector.",
+        serv_2_d3: "Direct sync and data enrichment in the CRM.",
+        serv_3_t: "Intelligent Qualification",
+        serv_3_d1: "Automated lead validation and scoring flows.",
+        serv_3_d2: "Real-time priority escalation.",
+        serv_3_d3: "Drastic reduction in time to first response.",
+        serv_4_t: "Reporting Consolidation",
+        serv_4_d1: "Automatic aggregation of scattered operational data.",
+        serv_4_d2: "Anomaly and statistical variance detection.",
+        serv_4_d3: "Executive reports ready without manual compilation.",
+        serv_5_t: "Support Automation",
+        serv_5_d1: "Instant 24/7 responses across unified channels.",
+        serv_5_d2: "Automatic classification and routing of critical tickets.",
+        serv_5_d3: "Drastic workload reduction for human teams.",
+        serv_6_t: "Internal Processes",
+        serv_6_d1: "Automation of repetitive flows and reconciliations.",
+        serv_6_d2: "Connection between internal systems without custom development.",
+        serv_6_d3: "Custom design based on existing architecture.",
+        bento_title: "What we build with you",
+        bento_desc: "We don't install tools. We install systems. Every component we add solves a specific fracture point with architectural precision.",
+        bento_1_t: "Real-Time Strategic Visibility",
+        bento_1_d1: "Operational status visible in a unified dashboard",
+        bento_1_d2: "Predictive alerts before processes fail",
+        bento_1_d3: "Contextual actions for every detected anomaly",
+        bento_1_d4: "Automatic operational debt reports",
+        bento_2_t: "Contact Automation",
+        bento_2_d1: "Sequences without manual intervention 24/7",
+        bento_2_d2: "Direct bidirectional CRM sync",
+        bento_2_d3: "Real-time data enrichment",
+        bento_3_t: "Adaptive Relevance",
+        bento_3_d1: "Dynamic adaptation to the sales cycle",
+        bento_3_d2: "AI-orchestrated multichannel",
+        bento_3_d3: "Real ROI impact measurement",
+        bento_cta_t: "Ready for the next level?",
+        bento_cta_d: "We analyze your current architecture with no commitment.",
+        fit_title: "Who BlackPoint is for",
+        fit_yes_t: "Fits with BlackPoint",
+        fit_yes_d1: "B2B operations with complex flows",
+        fit_yes_d2: "Multiple legacy + new systems in parallel",
+        fit_yes_d3: "Decisions that require integrated data",
+        fit_yes_d4: "Teams distributed across sales, ops, product",
+        fit_yes_d5: "Sustained growth is priority, not tactical urgency",
+        fit_no_t: "Not for",
+        fit_no_d1: "MVP-stage startups (no operational data yet)",
+        fit_no_d2: "Organizations looking for 'cheap fast tool'",
+        fit_no_d3: "Teams with no clear integration owner",
+        fit_no_d4: "Companies that don't measure decision impact",
+        met_title: "By the numbers",
+        met_h_1: "Metric",
+        met_h_2: "Manual Operation",
+        met_h_3: "With BlackPoint",
+        met_r1_c1: "Data Latency",
+        met_r1_c3: "Hours, not days",
+        met_r2_c1: "Manual Processing",
+        met_r2_c3: "Fraction of current time",
+        met_r3_c1: "Context Leakage",
+        met_r3_c3: "Complete traceability across systems",
+        met_r4_c1: "Predictive Decision",
+        met_r4_c3: "Structured visibility for informed decisions",
+        faq_title: "Zero Bullshit.",
+        faq_sub: "Direct answers for tactical decisions.",
+        faq_1_q: "Why don't you sell tools?",
+        faq_1_a: "Because tools are tactical; intelligence is strategic. We don't install isolated software, we install integrated decision systems.",
+        faq_2_q: "Do you replace my tech team?",
+        faq_2_a: "On the contrary. We eliminate operational maintenance overhead so your team can focus on your business core.",
+        faq_3_q: "How fast do we see results?",
+        faq_3_a: "Quick wins in 7 days, functional systems in 14, and full rollouts with measurable impact in 30 days. Larger-scale integrations adapt to context.",
+        faq_4_q: "What about my legacy data?",
+        faq_4_a: "We integrate it. Nobody starts from zero; we map the current chaos and convert it into a scalable structure.",
+        cont_title: "Request Diagnosis",
+        cont_name: "Name",
+        cont_name_ph: "Your name",
+        cont_email: "Email",
+        cont_email_ph: "you@email.com",
+        cont_comp: "Company",
+        cont_comp_ph: "Your company name",
+        cont_msg: "Message",
+        cont_msg_ph: "How can we help you?",
+        cont_btn: "Submit",
+        cont_direct: "Or write to us directly:",
+        nav_footer_title: "Navigation",
+        nav_footer_1: "Our Process",
+        nav_footer_2: "Integrated Services",
+        nav_footer_3: "Impact Metrics",
+        nav_footer_4: "Contact Page",
+        nav_footer_5: "Request Diagnosis",
+        conf_title: "Received",
+        conf_desc: "We will contact you within 24 hours.",
+        conf_btn: "Back to home",
+        bento_tag_1: "Sync: Real-Time",
+        bento_tag_2: "Latency: 12ms",
+        bento_tag_3: "Propagation",
+        footer_scan_label: "Last scan",
+        met_r1_c2: "48+ hours",
+        met_r2_c2: "120h/month",
+        met_r3_c2: "35% per stage",
+        met_r4_c2: "Non-existent",
+      }
+    };
+
+    let currentLang = localStorage.getItem('blackpoint_lang') || 'ES';
+
+    function updateContent() {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang][key]) {
+          el.textContent = translations[currentLang][key];
+        }
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[currentLang][key]) {
+          el.placeholder = translations[currentLang][key];
+        }
+      });
+
+      document.getElementById('langToggle').textContent = currentLang === 'ES' ? 'EN' : 'ES';
+    }
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'ES' ? 'EN' : 'ES';
+      localStorage.setItem('blackpoint_lang', currentLang);
+      updateContent();
+    }
+
+    // Initialize
+    updateContent();
+
+    // ============ THEME TOGGLE ============
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    // Load initial theme
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      html.classList.add('dark');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      if (html.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
     animateParticles();
     observeElements();
 
@@ -1444,7 +1995,8 @@
     if (scanTimeEl) {
         const updateTime = () => {
             const now = new Date();
-            scanTimeEl.textContent = `Último escaneo: ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
+            const label = translations[currentLang].footer_scan_label || 'Último escaneo';
+            scanTimeEl.textContent = `${label}: ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
         };
         updateTime();
         setInterval(updateTime, 5000);
