@@ -12,7 +12,7 @@
 - **Google Fonts** — Geist Sans, Geist Mono via CDN with font-display: swap
 - **Canvas API** — particle field (vanilla rAF loop)
 - **No backend** — contact form captures data locally (localStorage + console)
-- **Deployment** — Vercel → blackpointgroup.eu DNS
+- **Deployment** — Vercel → blackpoint.systems DNS
 
 ### Key Constraints
 - All CSS and JS inline in single HTML file
@@ -172,25 +172,7 @@ Cards (3x, dark surfaces, no glass):
 **Copy:**
 ```
 H2: "Diagnóstico primero. Integración después."
-
-Steps (numbered, gold accent):
-  01 MAPEO
-     → "Cartografiamos tu arquitectura operativa.
-        Identificamos puntos de fractura."
-
-  02 ESTRUCTURA
-     → "Definimos flujos de datos y lógica de negocio.
-        Reducimos ruido, exponemos verdad."
-
-  03 INTEGRACIÓN
-     → "Conectamos sistemas críticos en fases.
-        Cada integración es una victoria visible."
-
-  04 CALIBRACIÓN
-     → "Ajustamos en producción.
-        Medimos, aprendemos, escalamos."
-
-Primary CTA (centered below): "Comenzar Mapeo Estructurado" → #contact
+Standalone statement centered between sections, generous padding, minimal design.
 ```
 
 **Visual:** Each step has large gold number on left, title white, body muted. Horizontal line connects steps on desktop; vertical on mobile.
@@ -211,7 +193,7 @@ Body text:
 Cada componente que agregamos resuelve un punto de fractura específico.
 Nada es genérico. Todo es medible."
 
-CTA: "Ver caso de estudio" → (future link or scroll to metrics)
+
 
 Right Column (60%, cards staggered):
   CARD 1: INTERACCIÓN
@@ -250,11 +232,11 @@ Right Column (60%, cards staggered):
 **Copy:**
 ```
 Column 1: ENCAJA CON BLACKPOINT
-  ✓ Operaciones B2B complejas (>10M en revenue anual)
+  ✓ Operaciones B2B con flujos complejos
   ✓ Múltiples sistemas legacy + nuevos en paralelo
   ✓ Decisiones que requieren datos integrados
   ✓ Equipos distribuidos entre sales, ops, producto
-  ✓ Crecimiento sostenido es prioridad, no urgencia tctica
+  ✓ Crecimiento sostenido es prioridad, no urgencia táctica
 
 Column 2: NO ES PARA
   – Startups en fase MVP (aún sin datos operativos)
@@ -275,72 +257,36 @@ Column 2: NO ES PARA
 COMPARISON TABLE (3 columns):
 Header: MÉTRICA | OPERACIÓN MANUAL | CON BLACKPOINT
 
-Row 1: Tiempo de integración de datos
-  Manual: 2-4 semanas por fuente
-  BlackPoint: 5-7 días ✓
+Row 1: Latencia de Datos
+  Manual: 48+ horas
+  BlackPoint: Horas, no días
 
-Row 2: Latencia de visibilidad
-  Manual: 24-48 horas mínimo
-  BlackPoint: <15 minutos ✓
+Row 2: Procesamiento Manual
+  Manual: 120h/mes
+  BlackPoint: Fracción del tiempo actual
 
-Row 3: Errores de sincronización anual
-  Manual: 300-800 incidencias
-  BlackPoint: <5 incidencias ✓
+Row 3: Fuga de Contexto
+  Manual: 35% por etapa
+  BlackPoint: Trazabilidad completa entre sistemas
 
-Row 4: Costo operativo por integración
-  Manual: $40-80K (personas + herramientas)
-  BlackPoint: $12-18K (una sola vez) ✓
-
-Row 5: Escalabilidad a nuevos datos
-  Manual: Requiere nueva asignación de personas
-  BlackPoint: Agregable sin rediseño ✓
-
-METRIC CALLOUTS (2x2 grid below table):
-  Top-left: 86% — Reducción en tiempo de decisión
-  Top-right: 24/7 — Visibilidad operativa continua
-  Bottom-left: 94% — Exactitud de sincronización
-  Bottom-right: 3-6mo — Payback típico
+Row 4: Decisión Predictiva
+  Manual: No existente
+  BlackPoint: Visibilidad estructurada para decisiones informadas
 ```
 
 **Visual:** Table has BlackPoint column highlighted with gold accents and checkmarks. Numbers in grid are 56px Geist Mono white, labels below in 11px gold mono.
 
 ---
 
-### SECTION 7: CONTACTO (id="contact")
-**Layout:** 3-step qualification flow → form reveal
-
-**Copy:**
-```
-STEP 1: "¿Cuál es tu sector operativo principal?"
-  Pill options:
-    • Servicios financieros
-    • Manufactura & supply chain
-    • SaaS B2B
-    • Otro (especificar)
-
-STEP 2: "¿Dónde está el mayor cuello de botella?"
-  Pill options:
-    • Toma de decisiones lenta
-    • Duplicación de datos
-    • Pérdida de contexto entre equipos
-    • Falta de visibilidad operativa
-
-STEP 3: "¿Qué nivel de automatización tienes hoy?"
-  Pill options:
-    • Casi todo manual
-    • Herramientas sin integración
-    • Algunos flujos automatizados
-    • Arquitectura establecida, necesita optimización
-
-[After Step 3, form fades in]
-
 FORM:
-  Name: "Nombre completo"
-  Company: "Empresa"
-  Email: "Correo electrónico"
-  Message: "Describa su situación operativa en 2-3 líneas"
+  Nombre: "Tu nombre"
+  Email: "tu@email.com"
+  Empresa: "Nombre de tu empresa"
+  Mensaje: "¿En qué podemos ayudarte?"
 
-  Submit button: "Enviar Solicitud"
+  Submit button: "Enviar"
+
+  Direct Contact: team@blackpoint.systems + LinkedIn placeholder
 
   Confirmation message (post-submit):
     "Recibido. Nos pondremos en contacto en 24 horas."
@@ -362,8 +308,8 @@ Tagline: "Systems & Intelligence Firm"
 
 **Right Column:**
 ```
-blackpointgroup.eu
-© 2025 BlackPoint. All rights reserved.
+blackpoint.systems
+© 2026 BLACKPOINT SYSTEMS & INTELLIGENCE. All rights reserved.
 ```
 
 **Fixed Element:**
@@ -493,7 +439,7 @@ blackpointgroup.eu
   <meta property="og:type" content="website">
   <meta property="og:title" content="BlackPoint — Systems & Intelligence Firm">
   <meta property="og:description" content="Firma de integración de inteligencia para empresas B2B complejas. Diagnóstico estructural, integración por fases, apalancamiento medible.">
-  <meta property="og:url" content="https://blackpointgroup.eu">
+  <meta property="og:url" content="https://blackpoint.systems">
   <meta property="og:site_name" content="BlackPoint">
 
   <!-- Twitter Card -->
@@ -556,7 +502,7 @@ blackpointgroup.eu
 - Keep .env, .gitignore, package.json as-is (no modifications needed)
 - Push to GitHub
 - Deploy to Vercel (connected to GitHub repo)
-- DNS: blackpointgroup.eu points to Vercel deployment
+- DNS: blackpoint.systems points to Vercel deployment
 
 ---
 
@@ -617,14 +563,14 @@ git push origin main
 3. Production deployment at `blackpoint.vercel.app` (or custom domain)
 4. Environment: Production only (no staging needed)
 
-### Domain Configuration (blackpointgroup.eu)
+### Domain Configuration (blackpoint.systems)
 **DNS Setup (at domain registrar):**
-- CNAME record: `blackpointgroup.eu` → `cname.vercel.sh`
+- CNAME record: `blackpoint.systems` → `cname.vercel.sh`
 - Or use Vercel's nameserver delegation for full control
 
 **Vercel Dashboard:**
 1. Go to Project Settings → Domains
-2. Add `blackpointgroup.eu`
+2. Add `blackpoint.systems`
 3. Follow Vercel's domain verification steps
 4. Auto-provision SSL via Vercel (free)
 
@@ -669,7 +615,7 @@ git push origin main
 ### Deployment
 - [ ] Repository pushed to GitHub
 - [ ] Vercel deployment live
-- [ ] blackpointgroup.eu resolves correctly
+- [ ] blackpoint.systems resolves correctly
 - [ ] SSL certificate valid
 - [ ] Vite template files removed
 - [ ] index.html is single source of truth

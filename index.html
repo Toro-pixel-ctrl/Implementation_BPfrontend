@@ -13,7 +13,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="BlackPoint — Systems & Intelligence Firm">
   <meta property="og:description" content="Firma de integración de inteligencia para empresas B2B complejas. Diagnóstico estructural, integración por fases, apalancamiento medible.">
-  <meta property="og:url" content="https://blackpointgroup.eu">
+  <meta property="og:url" content="https://blackpoint.systems">
   <meta property="og:site_name" content="BlackPoint">
 
   <!-- Twitter Card -->
@@ -186,29 +186,7 @@
       color: #B8A020;
     }
 
-    /* Pill Options */
-    .pill {
-      padding: 12px 20px;
-      border-radius: 99px;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      background: transparent;
-      border: 2px solid rgba(0, 0, 0, 0.1);
-      color: #1A1A1A;
-      font-family: 'Geist', sans-serif;
-    }
 
-    .pill:hover {
-      border-color: #B8A020;
-      color: #B8A020;
-    }
-
-    .pill.active {
-      background-color: #B8A020;
-      color: #ffffff;
-      border-color: #B8A020;
-    }
 
     /* Scroll Animations */
     .fade-in-up {
@@ -284,55 +262,65 @@
       animation: statusPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
 
+    .system-card {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      background: #FFFFFF;
+      border: 1px solid #F3F4F6;
+      border-radius: 16px;
+      padding: 40px;
+    }
+
+    .system-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      padding: 1px;
+      background: linear-gradient(135deg, #B8A020 0%, transparent 60%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .system-card:hover {
+      transform: translateY(-8px);
+      border-color: transparent;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.06);
+    }
+
+    .system-card:hover::before {
+      opacity: 1;
+    }
+
+    .icon-box {
+      width: 52px;
+      height: 52px;
+      background: #FAFAFA;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 28px;
+      color: #B8A020;
+      border: 1px solid #F3F4F6;
+      transition: all 0.3s ease;
+    }
+
+    .system-card:hover .icon-box {
+      background: #FFFFFF;
+      border-color: rgba(184, 160, 32, 0.2);
+      transform: scale(1.05);
+    }
+
     @keyframes statusPulse {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.4; }
     }
 
-    /* Process Data line */
-    .process-line-container {
-      position: absolute;
-      top: 50px;
-      left: 12%;
-      right: 12%;
-      height: 1px;
-      background: rgba(0, 0, 0, 0.05);
-      z-index: 0;
-    }
 
-    .process-line-progress {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 100%;
-      background: #B8A020;
-      transition: width 1.5s cubic-bezier(0.65, 0, 0.35, 1);
-    }
-
-    .process-line-progress.in-view {
-      width: 100%;
-    }
-
-    /* System Progress Bar (Form) */
-    .system-progress-container {
-      width: 100%;
-      height: 2px;
-      background: rgba(0, 0, 0, 0.05);
-      margin-bottom: 40px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .system-progress-bar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 33%;
-      background: #B8A020;
-      transition: width 0.6s cubic-bezier(0.65, 0, 0.35, 1);
-    }
 
     /* Footer Brand Watermark */
     .footer-watermark {
@@ -451,27 +439,7 @@
       font-weight: 600;
     }
 
-    /* Progress Dots */
-    .progress-dots {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      margin-bottom: 40px;
-    }
 
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-    }
-
-    .dot.active {
-      background: #B8A020;
-      width: 32px;
-      border-radius: 4px;
-    }
 
     /* Form */
     .form-group {
@@ -674,7 +642,8 @@
         <a href="#proceso" class="text-[13px] text-gray-900 font-medium hover:text-[#B8A020] transition-colors duration-300">Proceso</a>
         <a href="#servicios" class="text-[13px] text-gray-900 font-medium hover:text-[#B8A020] transition-colors duration-300">Servicios</a>
         <a href="#metricas" class="text-[13px] text-gray-900 font-medium hover:text-[#B8A020] transition-colors duration-300">Métricas</a>
-        <a href="#contact" class="text-[13px] text-gray-900 font-medium hover:text-[#B8A020] transition-colors duration-300 border border-gray-900 rounded-full px-5 py-2 hover:bg-gray-900 hover:text-white">Empieza Ahora</a>
+        <a href="contacto/" class="text-[13px] text-gray-900 font-medium hover:text-[#B8A020] transition-colors duration-300">Contacto</a>
+        <a href="#contact" class="text-[13px] text-gray-900 font-medium hover:text-[#B8A020] transition-colors duration-300 border border-gray-900 rounded-full px-5 py-2 hover:bg-gray-900 hover:text-white">Solicitar Diagnóstico</a>
       </nav>
 
       <!-- Mobile Toggle -->
@@ -693,7 +662,8 @@
       <a href="#proceso" class="text-3xl font-bold text-gray-900 tracking-tighter hover:text-accent transition-colors mobile-link">Proceso</a>
       <a href="#servicios" class="text-3xl font-bold text-gray-900 tracking-tighter hover:text-accent transition-colors mobile-link">Servicios</a>
       <a href="#metricas" class="text-3xl font-bold text-gray-900 tracking-tighter hover:text-accent transition-colors mobile-link">Métricas</a>
-      <a href="#contact" class="btn btn-primary mt-4">Solicitar Mapeo</a>
+      <a href="contacto/" class="text-3xl font-bold text-gray-900 tracking-tighter hover:text-accent transition-colors mobile-link">Contacto</a>
+      <a href="#contact" class="btn btn-primary mt-4">Solicitar Diagnóstico</a>
     </nav>
   </div>
 
@@ -720,7 +690,7 @@
       </div>
 
       <div class="flex flex-col sm:flex-row gap-6 justify-center opacity-0 translate-y-8 transition-all duration-1000 delay-700 staggered-reveal">
-        <a href="#contact" class="btn btn-primary px-10 py-4 text-lg">Solicitar Mapeo Estructurado</a>
+        <a href="#contact" class="btn btn-primary px-10 py-4 text-lg">Solicitar Diagnóstico</a>
         <a href="#proceso" class="btn btn-ghost px-10 py-4 text-lg">Cómo operamos</a>
       </div>
     </div>
@@ -780,46 +750,9 @@
   </section>
 
   <!-- Process Section -->
-  <section id="proceso" class="relative bg-secondary section-padding">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-center mb-24">Diagnóstico primero. Integración después.</h2>
-
-      <div class="relative max-w-5xl mx-auto">
-        <!-- Connecting Line (hidden on mobile) -->
-        <div class="process-line-container hidden md:block">
-            <div class="process-line-progress staggered-reveal"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16 relative z-10">
-          <div class="stagger-child text-center pt-8">
-            <div class="text-4xl md:text-5xl font-black text-accent mb-6 leading-none">01</div>
-            <h3 class="text-xl font-black mb-3">Mapeo</h3>
-            <p class="text-sm text-gray-500 leading-relaxed px-4">Cartografiamos tu arquitectura operativa. Identificamos fracturas.</p>
-          </div>
-
-          <div class="stagger-child text-center pt-8" style="animation-delay: 0.1s">
-            <div class="text-4xl md:text-5xl font-black text-accent mb-6 leading-none">02</div>
-            <h3 class="text-xl font-black mb-3">Estructura</h3>
-            <p class="text-sm text-gray-500 leading-relaxed px-4">Definimos flujos de datos. Reducimos ruido, exponemos verdad.</p>
-          </div>
-
-          <div class="stagger-child text-center pt-8" style="animation-delay: 0.2s">
-            <div class="text-4xl md:text-5xl font-black text-accent mb-6 leading-none">03</div>
-            <h3 class="text-xl font-black mb-3">Integración</h3>
-            <p class="text-sm text-gray-500 leading-relaxed px-4">Conectamos sistemas por fases. Cada integration es un logro.</p>
-          </div>
-
-          <div class="stagger-child text-center pt-8" style="animation-delay: 0.3s">
-            <div class="text-4xl md:text-5xl font-black text-accent mb-6 leading-none">04</div>
-            <h3 class="text-xl font-black mb-3">Calibración</h3>
-            <p class="text-sm text-gray-500 leading-relaxed px-4">Ajustamos en producción. Medimos, aprendemos, escalamos.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex justify-center">
-        <a href="#contact" class="btn btn-primary">Comenzar Mapeo Estructurado</a>
-      </div>
+  <section id="proceso" class="relative bg-secondary py-40">
+    <div class="max-w-6xl mx-auto px-10 text-center">
+      <h2 class="reveal-text tracking-tighter mb-0">Diagnóstico primero. Integración después.</h2>
     </div>
   </section>
   
@@ -832,116 +765,166 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Card 1 -->
-        <div class="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all p-8 stagger-child">
-          <h3 class="font-semibold text-lg text-[#1A1A1A] mb-4">Agentes de Voz</h3>
-          <div class="space-y-3">
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-2">
-              <span class="text-accent">•</span>
-              Atención telefónica automatizada 24/7 inbound y outbound
+        <!-- Card 1: Agentes de Voz -->
+        <div class="system-card stagger-child">
+          <div class="flex justify-between items-start mb-2">
+            <div class="icon-box">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m8 0h-3m4-8a3 3 0 01-3 3H9a3 3 0 01-3-3V5a3 3 0 013-3h6a3 3 0 013 3v6z"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] font-mono text-gray-400 opacity-60">VOX-CORE-01</span>
+          </div>
+          <h3 class="font-black text-xl text-[#1A1A1A] mb-5 tracking-tight">Agentes de Voz</h3>
+          <div class="space-y-4">
+            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+              Atención telefónica automatizada 24/7 inbound y outbound.
             </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-2">
-              <span class="text-accent">•</span>
-              Reservas, confirmaciones y seguimiento sin intervención humana
+            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+              Reservas, confirmaciones y seguimiento sin intervención humana.
             </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-2">
-              <span class="text-accent">•</span>
-              Análisis automático de cada conversación
+            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+              Análisis automático de sentimiento y contexto de cada conversación.
             </p>
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all p-8 stagger-child" style="animation-delay: 0.1s">
-          <h3 class="font-semibold text-lg text-[#1A1A1A] mb-4">Automatización de Outreach</h3>
-          <div class="space-y-3">
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-2">
-              <span class="text-accent">•</span>
-              Secuencias multicanal sin intervención manual
+        <!-- Card 2: Automatización de Outreach -->
+        <div class="system-card stagger-child" style="animation-delay: 0.1s">
+          <div class="flex justify-between items-start mb-2">
+            <div class="icon-box">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] font-mono text-gray-400 opacity-60">HUB-SYNC-B2B</span>
+          </div>
+          <h3 class="font-black text-xl text-[#1A1A1A] mb-5 tracking-tight">Automatización de Outreach</h3>
+          <div class="space-y-4">
+            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+              Secuencias multicanal orquestadas sin intervención manual.
             </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-2">
-              <span class="text-accent">•</span>
-              Personalización avanzada por perfil de decisor
+            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+              Personalización avanzada por perfil de decisor y sector.
             </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-2">
-              <span class="text-accent">•</span>
-              Sincronización directa con CRM
+            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+              Sincronización directa y enriquecimiento de datos en el CRM.
             </p>
           </div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all p-8 stagger-child" style="animation-delay: 0.2s">
-          <h3 class="font-semibold text-lg text-[#1A1A1A] mb-4">Cualificación Inteligente</h3>
-          <div class="space-y-3">
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-2">
-              <span class="text-accent">•</span>
-              Flujos automáticos de validación y scoring
+        <!-- Card 3: Cualificación Inteligente -->
+        <div class="system-card stagger-child" style="animation-delay: 0.2s">
+          <div class="flex justify-between items-start mb-2">
+            <div class="icon-box">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-2.06 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946 2.06 3.42 3.42 0 011.607 4.126 3.42 3.42 0 00.122 2.81 3.42 3.42 0 01-1.607 4.126 3.42 3.42 0 00-1.946 2.06 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-2.06 3.42 3.42 0 01-1.607-4.126 3.42 3.42 0 00-.122-2.81 3.42 3.42 0 011.607-4.126z"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] font-mono text-gray-400 opacity-60">QUAL-SCAN-04</span>
+          </div>
+          <h3 class="font-black text-xl text-[#1A1A1A] mb-5 tracking-tight">Cualificación Inteligente</h3>
+          <div class="space-y-4">
+            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+              Flujos automáticos de validación y scoring de leads.
             </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-2">
-              <span class="text-accent">•</span>
-              Escalamiento por prioridad sin intervención humana
+            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+              Escalamiento por prioridad en tiempo real.
             </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-2">
-              <span class="text-accent">•</span>
-              Reducción de tiempo hasta primera respuesta
+            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+              Reducción drástica del tiempo hasta la primera respuesta.
             </p>
           </div>
         </div>
 
-        <!-- Card 4 -->
-        <div class="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all p-8 stagger-child">
-          <h3 class="font-semibold text-lg text-[#1A1A1A] mb-4">Consolidación de Reporting</h3>
-          <div class="space-y-3">
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-2">
-              <span class="text-accent">•</span>
-              Agregación automática de datos operativos
+        <!-- Card 4: Consolidación de Reporting -->
+        <div class="system-card stagger-child">
+          <div class="flex justify-between items-start mb-2">
+            <div class="icon-box">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] font-mono text-gray-400 opacity-60">REP-ALGO-V2</span>
+          </div>
+          <h3 class="font-black text-xl text-[#1A1A1A] mb-5 tracking-tight">Consolidación de Reporting</h3>
+          <div class="space-y-4">
+            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+              Agregación automática de datos operativos disparatados.
             </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-2">
-              <span class="text-accent">•</span>
-              Detección de anomalías y varianzas
+            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+              <span class="text-accent mt-1.5 flex-shrink-0">
+                <svg class="w-1.5 h-1.5" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3"/></svg>
+              </span>
+              Detección de anomalías y varianzas estadísticas.
             </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-2">
-              <span class="text-accent">•</span>
-              Informes ejecutivos sin compilación manual
+            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+              Informes ejecutivos listos sin compilación manual.
             </p>
           </div>
         </div>
 
-        <!-- Card 5 -->
-        <div class="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all p-8 stagger-child" style="animation-delay: 0.1s">
-          <h3 class="font-semibold text-lg text-[#1A1A1A] mb-4">Automatización de Soporte</h3>
-          <div class="space-y-3">
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-2">
-              <span class="text-accent">•</span>
-              Respuestas inmediatas 24/7 en canales unificados
+        <!-- Card 5: Automatización de Soporte -->
+        <div class="system-card stagger-child" style="animation-delay: 0.1s">
+          <div class="flex justify-between items-start mb-2">
+            <div class="icon-box">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] font-mono text-gray-400 opacity-60">SUP-NODE-ASYNC</span>
+          </div>
+          <h3 class="font-black text-xl text-[#1A1A1A] mb-5 tracking-tight">Automatización de Soporte</h3>
+          <div class="space-y-4">
+            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+              Respuestas inmediatas 24/7 en canales unificados.
             </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-2">
-              <span class="text-accent">•</span>
-              Clasificación y routing automático de tickets
+            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+              Clasificación y routing automático de tickets críticos.
             </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-2">
-              <span class="text-accent">•</span>
-              Reducción de carga en equipos humanos
+            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+              Reducción drástica de carga en equipos humanos.
             </p>
           </div>
         </div>
 
-        <!-- Card 6 -->
-        <div class="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all p-8 stagger-child" style="animation-delay: 0.2s">
-          <h3 class="font-semibold text-lg text-[#1A1A1A] mb-4">Procesos Internos</h3>
-          <div class="space-y-3">
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-2">
-              <span class="text-accent">•</span>
-              Automatización de flujos operativos repetitivos (data entry, validaciones, conciliaciones)
+        <!-- Card 6: Procesos Internos -->
+        <div class="system-card stagger-child" style="animation-delay: 0.2s">
+          <div class="flex justify-between items-start mb-2">
+            <div class="icon-box">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 011-1h1a2 2 0 100-4H7a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path>
+              </svg>
+            </div>
+            <span class="text-[9px] font-mono text-gray-400 opacity-60">INTERNAL-FLOW-X</span>
+          </div>
+          <h3 class="font-black text-xl text-[#1A1A1A] mb-5 tracking-tight">Procesos Internos</h3>
+          <div class="space-y-4">
+            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+              Automatización de flujos repetitivos y conciliaciones.
             </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-2">
-              <span class="text-accent">•</span>
-              Conexión entre sistemas internos sin desarrollo custom
+            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+              Conexión entre sistemas internos sin desarrollo custom.
             </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-2">
-              <span class="text-accent">•</span>
-              Diseño a medida según la arquitectura existente del cliente
+            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+              Diseño a medida según la arquitectura existente.
             </p>
           </div>
         </div>
@@ -959,7 +942,7 @@
                 No instalamos herramientas. Instalamos sistemas. Cada componente que agregamos resuelve un punto de fractura específico con precisión arquitectónica.
             </p>
         </div>
-        <a href="#contact" class="btn btn-ghost border-gray-300">Ver caso de estudio</a>
+
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -1047,7 +1030,7 @@
                    <h4 class="text-xl font-bold mb-2">¿Listo para el siguiente nivel?</h4>
                    <p class="text-sm text-gray-500">Analizamos tu arquitectura actual sin compromiso.</p>
                 </div>
-                <a href="#contact" class="btn btn-primary whitespace-nowrap">Solicitar Auditoría</a>
+                <a href="#contact" class="btn btn-primary whitespace-nowrap">Solicitar Diagnóstico</a>
             </div>
           </div>
       </div>
@@ -1065,7 +1048,7 @@
           <ul class="space-y-4">
             <li class="flex gap-4 pb-4 border-b border-subtle">
               <span class="text-accent text-xl flex-shrink-0">✓</span>
-              <span>Operaciones B2B complejas (>10M en revenue anual)</span>
+              <span>Operaciones B2B con flujos complejos</span>
             </li>
             <li class="flex gap-4 pb-4 border-b border-subtle">
               <span class="text-accent text-xl flex-shrink-0">✓</span>
@@ -1116,7 +1099,7 @@
     <div class="max-w-6xl mx-auto">
       <h2 class="mb-16">Por los números</h2>
 
-      <div class="overflow-x-auto mb-20">
+      <div class="overflow-x-auto">
         <table class="metrics-table">
           <thead>
             <tr>
@@ -1129,61 +1112,25 @@
             <tr>
               <td>Latencia de Datos</td>
               <td>48+ horas</td>
-              <td class="highlight text-[#10B981]">Real-time (12ms)</td>
-              <td class="font-mono text-xs">+99.9% Velocity</td>
+              <td class="highlight text-[#10B981]">Horas, no días</td>
             </tr>
             <tr>
               <td>Procesamiento Manual</td>
-              <td>120h / mes</td>
-              <td class="highlight text-[#10B981]">4h / mes</td>
-              <td class="font-mono text-xs">30x Scale</td>
+              <td>120h/mes</td>
+              <td class="highlight text-[#10B981]">Fracción del tiempo actual</td>
             </tr>
             <tr>
               <td>Fuga de Contexto</td>
               <td>35% por etapa</td>
-              <td class="highlight text-[#10B981]">&lt;2%</td>
-              <td class="font-mono text-xs">High Fidelity</td>
+              <td class="highlight text-[#10B981]">Trazabilidad completa entre sistemas</td>
             </tr>
             <tr>
               <td>Decisión Predictiva</td>
               <td>No existente</td>
-              <td class="highlight text-[#10B981]">Nivel 4 (Automatizada)</td>
-              <td class="font-mono text-xs">Total Control</td>
+              <td class="highlight text-[#10B981]">Visibilidad estructurada para decisiones informadas</td>
             </tr>
           </tbody>
         </table>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div class="stagger-child text-center" style="animation-delay: 0.12s">
-          <div class="metric-number mb-2">92<span class="text-accent">%</span></div>
-          <p class="mono-label">Reducción de Deuda Op</p>
-          <div class="flex justify-center mt-4 opacity-30">
-            <svg class="sparkline" viewBox="0 0 100 30">
-                <path d="M0,25 L20,20 L40,22 L60,10 L80,5 L100,2" fill="none" stroke="#B8A020" stroke-width="2"/>
-            </svg>
-          </div>
-        </div>
-
-        <div class="stagger-child text-center" style="animation-delay: 0.24s">
-          <div class="metric-number mb-2">24<span class="text-accent">/7</span></div>
-          <p class="mono-label">Monitorización Activa</p>
-          <div class="flex justify-center mt-4 opacity-30">
-            <svg class="sparkline" viewBox="0 0 100 30">
-                <path d="M0,15 L20,15 L40,15 L60,15 L80,15 L100,15" fill="none" stroke="#B8A020" stroke-width="2"/>
-            </svg>
-          </div>
-        </div>
-
-        <div class="stagger-child text-center" style="animation-delay: 0.36s">
-          <div class="metric-number mb-2">3<span class="text-accent">-6mo</span></div>
-          <p class="mono-label">Payback típico</p>
-          <div class="flex justify-center mt-4 opacity-30">
-            <svg class="sparkline" viewBox="0 0 100 30">
-                <path d="M0,28 L20,25 L40,30 L60,15 L80,10 L100,5" fill="none" stroke="#B8A020" stroke-width="2"/>
-            </svg>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -1191,73 +1138,45 @@
   <!-- Contact Section -->
   <section id="contact" class="relative bg-secondary section-padding">
     <div class="max-w-2xl mx-auto">
-      <h2 class="text-center mb-16">Solicitar Mapeo Estructurado</h2>
+      <h2 class="text-center mb-16">Solicitar Diagnóstico</h2>
 
-      <!-- Qualification Flow -->
-      <div id="qualificationFlow">
-        <!-- System Progress Bar -->
-        <div class="system-progress-container rounded-full">
-            <div class="system-progress-bar" id="formProgress"></div>
-        </div>
-
-        <!-- Step 1 -->
-        <div class="qualification-step fade-in-up" id="step-0">
-          <h3 class="text-xl font-bold mb-8 text-center">¿Cuál es tu sector operativo principal?</h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <button class="pill" data-step="0" data-value="Servicios financieros">Servicios financieros</button>
-            <button class="pill" data-step="0" data-value="Manufactura & supply chain">Manufactura & supply chain</button>
-            <button class="pill" data-step="0" data-value="SaaS B2B">SaaS B2B</button>
-            <button class="pill" data-step="0" data-value="Otro">Otro (especificar)</button>
+      <!-- Contact Form -->
+      <form id="contactForm" class="mt-16 fade-in-up">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" required placeholder="Tu nombre">
           </div>
-        </div>
 
-        <!-- Step 2 -->
-        <div class="qualification-step hidden" id="step-1">
-          <h3 class="text-xl font-bold mb-8 text-center">¿Dónde está el mayor cuello de botella?</h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <button class="pill" data-step="1" data-value="Toma de decisiones lenta">Toma de decisiones lenta</button>
-            <button class="pill" data-step="1" data-value="Duplicación de datos">Duplicación de datos</button>
-            <button class="pill" data-step="1" data-value="Pérdida de contexto entre equipos">Pérdida de contexto entre equipos</button>
-            <button class="pill" data-step="1" data-value="Falta de visibilidad operativa">Falta de visibilidad operativa</button>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="tu@email.com">
           </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="qualification-step hidden" id="step-2">
-          <h3 class="text-xl font-bold mb-8 text-center">¿Qué nivel de automatización tienes hoy?</h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <button class="pill" data-step="2" data-value="Casi todo manual">Casi todo manual</button>
-            <button class="pill" data-step="2" data-value="Herramientas sin integración">Herramientas sin integración</button>
-            <button class="pill" data-step="2" data-value="Algunos flujos automatizados">Algunos flujos automatizados</button>
-            <button class="pill" data-step="2" data-value="Arquitectura establecida, necesita optimización">Arquitectura establecida, necesita optimización</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Contact Form (hidden until step 3 complete) -->
-      <form id="contactForm" class="hidden mt-16 fade-in-up">
-        <div class="form-group">
-          <label for="name">Nombre completo</label>
-          <input type="text" id="name" name="name" required>
         </div>
 
         <div class="form-group">
           <label for="company">Empresa</label>
-          <input type="text" id="company" name="company" required>
+          <input type="text" id="company" name="company" required placeholder="Nombre de tu empresa">
         </div>
 
         <div class="form-group">
-          <label for="email">Correo electrónico</label>
-          <input type="email" id="email" name="email" required>
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" required placeholder="¿En qué podemos ayudarte?"></textarea>
         </div>
 
-        <div class="form-group">
-          <label for="message">Describa su situación operativa en 2-3 líneas</label>
-          <textarea id="message" name="message" required></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary w-full">Enviar Solicitud</button>
+        <button type="submit" class="btn btn-primary w-full py-4 text-lg">Enviar</button>
       </form>
+
+      <div class="mt-12 pt-12 border-t border-gray-200 text-center">
+        <p class="text-gray-500 mb-4">O escríbenos directamente a:</p>
+        <a href="mailto:team@blackpoint.systems" class="text-gray-900 font-bold hover:text-accent transition-colors">team@blackpoint.systems</a>
+        <div class="mt-8">
+            <a href="#" class="text-gray-400 hover:text-gray-900 flex items-center justify-center gap-2 text-sm">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                LinkedIn
+            </a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1298,15 +1217,15 @@
                 <li><a href="#proceso" class="hover:text-accent transition-colors">Nuestro Proceso</a></li>
                 <li><a href="#servicios" class="hover:text-accent transition-colors">Servicios Integrados</a></li>
                 <li><a href="#metricas" class="hover:text-accent transition-colors">Métricas de Impacto</a></li>
-                <li><a href="#contact" class="hover:text-accent transition-colors">Solicitar Auditoría</a></li>
+                <li><a href="contacto/" class="hover:text-accent transition-colors">Página de Contacto</a></li>
+                <li><a href="#contact" class="hover:text-accent transition-colors">Solicitar Diagnóstico</a></li>
             </ul>
         </div>
 
         <div class="text-right flex flex-col items-end">
-            <div class="mono-label mb-6 text-gray-900 border-b border-gray-200 pb-2 w-full text-right">Contacto</div>
-            <p class="text-sm mb-1 text-gray-900 font-bold">blackpointgroup.eu</p>
-            <p class="text-xs text-gray-400 mb-8 lowercase tracking-wider">ops@blackpointgroup.eu</p>
-            <p class="text-muted text-[10px] uppercase tracking-widest opacity-40">© 2025 BlackPoint Systems. Inc.</p>
+            <p class="text-sm mb-1 text-gray-900 font-bold">blackpoint.systems</p>
+            <p class="text-xs text-gray-400 mb-8 lowercase tracking-wider">team@blackpoint.systems</p>
+            <p class="text-muted text-[10px] uppercase tracking-widest opacity-40">© 2026 BLACKPOINT SYSTEMS & INTELLIGENCE</p>
         </div>
       </div>
     </div>
@@ -1475,45 +1394,6 @@
       });
     });
 
-    // ============ QUALIFICATION FLOW ============
-    let qualificationData = {
-      sector: '',
-      bottleneck: '',
-      automation: '',
-    };
-
-    const pills = document.querySelectorAll('.pill');
-    pills.forEach((pill) => {
-      pill.addEventListener('click', () => {
-        const step = pill.getAttribute('data-step');
-        const value = pill.getAttribute('data-value');
-
-        document.querySelectorAll(`.pill[data-step="${step}"]`).forEach((p) => p.classList.remove('active'));
-        pill.classList.add('active');
-
-        const stepKeys = ['sector', 'bottleneck', 'automation'];
-        qualificationData[stepKeys[step]] = value;
-
-        setTimeout(() => {
-          const nextStep = parseInt(step) + 1;
-          const progressPercent = ((nextStep + 1) / 4) * 100;
-          document.getElementById('formProgress').style.width = `${progressPercent}%`;
-
-          if (nextStep < 3) {
-            document.getElementById(`step-${step}`).classList.add('hidden');
-            const nextEl = document.getElementById(`step-${nextStep}`);
-            nextEl.classList.remove('hidden');
-            nextEl.classList.add('fade-in-up');
-          } else {
-            document.getElementById(`step-${step}`).classList.add('hidden');
-            document.getElementById('qualificationFlow').classList.add('hidden');
-            document.getElementById('contactForm').classList.remove('hidden');
-            document.getElementById('formProgress').style.width = '100%';
-          }
-        }, 300);
-      });
-    });
-
     // ============ CONTACT FORM ============
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
@@ -1522,12 +1402,9 @@
 
         const formData = {
           name: document.getElementById('name').value,
-          company: document.getElementById('company').value,
           email: document.getElementById('email').value,
+          company: document.getElementById('company').value,
           message: document.getElementById('message').value,
-          sector: qualificationData.sector,
-          bottleneck: qualificationData.bottleneck,
-          automation: qualificationData.automation,
           timestamp: new Date().toISOString(),
         };
 
@@ -1537,20 +1414,15 @@
 
         console.log('Form submitted:', formData);
 
-        contactForm.classList.add('hidden');
+        contactForm.style.opacity = '0.5';
+        contactForm.style.pointerEvents = 'none';
+        
         document.getElementById('confirmationModal').classList.add('open');
 
         setTimeout(() => {
           contactForm.reset();
-          document.getElementById('qualificationFlow').classList.remove('hidden');
-          document.getElementById('step-0').classList.remove('hidden');
-          document.getElementById('step-1').classList.add('hidden');
-          document.getElementById('step-2').classList.add('hidden');
-          document.getElementById('dot-0').classList.add('active');
-          document.getElementById('dot-1').classList.remove('active');
-          document.getElementById('dot-2').classList.remove('active');
-          document.querySelectorAll('.pill').forEach((p) => p.classList.remove('active'));
-          qualificationData = { sector: '', bottleneck: '', automation: '' };
+          contactForm.style.opacity = '1';
+          contactForm.style.pointerEvents = 'auto';
           document.getElementById('confirmationModal').classList.remove('open');
         }, 3000);
       });
