@@ -52,8 +52,8 @@
 
     body {
       font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background-color: #050505;
-      color: #ffffff;
+      background-color: #FAFAFA;
+      color: #1A1A1A;
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -79,7 +79,7 @@
       font-size: 18px;
       font-weight: 300;
       line-height: 1.8;
-      color: #606060;
+      color: #6B7280;
     }
 
     .mono-label {
@@ -88,22 +88,22 @@
       font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #B8A020;
+      color: #9CA3AF;
     }
 
     .metric-number {
       font-family: 'Geist Mono', monospace;
       font-size: clamp(36px, 8vw, 56px);
       font-weight: 500;
-      color: #ffffff;
+      color: #1A1A1A;
     }
 
     /* Colors */
     .text-accent { color: #B8A020; }
-    .text-muted { color: #606060; }
-    .border-subtle { border-color: rgba(255, 255, 255, 0.07); }
-    .bg-primary { background-color: #050505; }
-    .bg-secondary { background-color: #0A0A0A; }
+    .text-muted { color: #6B7280; }
+    .border-subtle { border-color: rgba(0, 0, 0, 0.1); }
+    .bg-primary { background-color: #FAFAFA; }
+    .bg-secondary { background-color: #FFFFFF; }
 
     /* Header Classes handled by Tailwind */
 
@@ -124,19 +124,20 @@
 
     .btn-primary {
       background-color: #B8A020;
-      color: #050505;
+      color: #ffffff;
       border-color: #B8A020;
     }
 
     .btn-primary:hover {
-      background-color: #D4BC47;
-      border-color: #D4BC47;
+      background-color: #9A8518;
+      border-color: #9A8518;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     }
 
     .btn-ghost {
       background: transparent;
-      color: #ffffff;
-      border-color: rgba(255, 255, 255, 0.3);
+      color: #1A1A1A;
+      border-color: rgba(0, 0, 0, 0.2);
     }
 
     .btn-ghost:hover {
@@ -152,8 +153,8 @@
       cursor: pointer;
       transition: all 0.2s ease;
       background: transparent;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      color: #ffffff;
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      color: #1A1A1A;
       font-family: 'Geist', sans-serif;
     }
 
@@ -164,7 +165,7 @@
 
     .pill.active {
       background-color: #B8A020;
-      color: #050505;
+      color: #ffffff;
       border-color: #B8A020;
     }
 
@@ -193,16 +194,25 @@
 
     /* Card Styles */
     .card-base {
-      background-color: #0A0A0A;
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      border-radius: 8px;
+      background-color: #FFFFFF;
+      border: 1px solid #E5E7EB;
+      border-radius: 12px;
       padding: 32px;
       transition: all 0.3s ease;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
     }
 
     .card-base:hover {
       border-color: rgba(184, 160, 32, 0.3);
-      background-color: rgba(10, 10, 10, 0.8);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+    }
+
+    .card-base h3 {
+      color: #1A1A1A;
+    }
+
+    .card-base p, .card-base ul {
+      color: #6B7280;
     }
 
     /* Particle Canvas */
@@ -233,7 +243,7 @@
     .hamburger span {
       width: 24px;
       height: 2px;
-      background: #ffffff;
+      background: #1A1A1A;
       transition: all 0.3s ease;
     }
 
@@ -248,23 +258,29 @@
       width: 100%;
       border-collapse: collapse;
       margin-bottom: 64px;
+      background: #FFFFFF;
     }
 
     .metrics-table th,
     .metrics-table td {
       padding: 16px;
       text-align: left;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      border-bottom: 1px solid #E5E7EB;
       font-size: 14px;
+      color: #1A1A1A;
     }
 
     .metrics-table th {
       font-weight: 500;
-      color: #B8A020;
+      color: #9CA3AF;
       font-family: 'Geist Mono', monospace;
       font-size: 11px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
+    }
+
+    .metrics-table tbody tr:nth-child(even) {
+      background-color: #F9FAFB;
     }
 
     .metrics-table tbody tr:hover {
@@ -288,7 +304,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
     }
 
@@ -307,7 +323,7 @@
       display: block;
       font-size: 14px;
       margin-bottom: 8px;
-      color: #ffffff;
+      color: #1A1A1A;
       font-family: 'Geist', sans-serif;
     }
 
@@ -315,20 +331,21 @@
     .form-group textarea {
       width: 100%;
       padding: 12px 16px;
-      background: #0A0A0A;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #FFFFFF;
+      border: 1px solid #E5E7EB;
       border-radius: 6px;
-      color: #ffffff;
+      color: #1A1A1A;
       font-family: 'Geist', sans-serif;
       font-size: 14px;
       transition: all 0.2s ease;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     }
 
     .form-group input:focus,
     .form-group textarea:focus {
       outline: none;
       border-color: #B8A020;
-      background: rgba(10, 10, 10, 0.5);
+      background: #FFFFFF;
     }
 
     .form-group textarea {
@@ -340,7 +357,7 @@
     .modal {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.5);
       display: none;
       align-items: center;
       justify-content: center;
@@ -352,13 +369,14 @@
     }
 
     .modal-content {
-      background: #0A0A0A;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #FFFFFF;
+      border: 1px solid #E5E7EB;
       border-radius: 12px;
       padding: 48px;
       max-width: 400px;
       text-align: center;
       animation: slideUp 0.4s ease-out;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
 
     @keyframes slideUp {
@@ -403,8 +421,8 @@
       content: '';
       width: 6px;
       height: 6px;
-      border-top: 2px solid #050505;
-      border-right: 2px solid #050505;
+      border-top: 2px solid #ffffff;
+      border-right: 2px solid #ffffff;
       transform: rotate(-45deg);
     }
 
@@ -428,7 +446,7 @@
 
     .scroll-indicator span {
       font-size: 12px;
-      color: #606060;
+      color: #6B7280;
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
@@ -437,8 +455,8 @@
       content: '';
       width: 6px;
       height: 6px;
-      border-bottom: 2px solid #606060;
-      border-right: 2px solid #606060;
+      border-bottom: 2px solid #6B7280;
+      border-right: 2px solid #6B7280;
       transform: rotate(45deg);
     }
 
@@ -446,7 +464,7 @@
     .hero-overlay {
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(5, 5, 5, 0) 0%, rgba(5, 5, 5, 0.8) 100%);
+      background: radial-gradient(ellipse at 50% 0%, rgba(250, 250, 250, 0) 0%, rgba(250, 250, 250, 0.8) 100%);
       pointer-events: none;
     }
 
@@ -484,21 +502,21 @@
 
 <body>
   <!-- Header -->
-  <header id="header" class="fixed top-0 left-0 right-0 h-20 z-50 transition-all duration-300 border-b border-transparent bg-black/60 backdrop-blur-sm text-white">
+  <header id="header" class="fixed top-0 left-0 right-0 h-20 z-50 transition-all duration-300 border-b border-transparent bg-transparent text-gray-900">
     <div class="flex items-center justify-between h-full px-6 md:px-12 max-w-[1400px] mx-auto">
       
       <!-- Logo -->
       <a href="#" class="flex flex-col justify-center border-none no-underline">
-        <span class="font-bold text-xl tracking-[0.3em] text-white">BLACKPOINT</span>
+        <span class="font-bold text-xl tracking-[0.3em] text-gray-900">BLACKPOINT</span>
         <span class="text-[10px] text-gray-500 tracking-widest uppercase mt-0.5">Systems & Intelligence</span>
       </a>
 
       <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-8">
-        <a href="#proceso" class="text-sm text-white font-medium hover:text-[#2E5BFF] transition-colors duration-200">Proceso</a>
-        <a href="#servicios" class="text-sm text-white font-medium hover:text-[#2E5BFF] transition-colors duration-200">Servicios</a>
-        <a href="#metricas" class="text-sm text-white font-medium hover:text-[#2E5BFF] transition-colors duration-200">Métricas</a>
-        <a href="#contact" class="text-sm text-white font-medium hover:text-[#2E5BFF] transition-colors duration-200">Contacto</a>
+        <a href="#proceso" class="text-sm text-gray-900 font-medium hover:text-[#2E5BFF] transition-colors duration-200">Proceso</a>
+        <a href="#servicios" class="text-sm text-gray-900 font-medium hover:text-[#2E5BFF] transition-colors duration-200">Servicios</a>
+        <a href="#metricas" class="text-sm text-gray-900 font-medium hover:text-[#2E5BFF] transition-colors duration-200">Métricas</a>
+        <a href="#contact" class="text-sm text-gray-900 font-medium hover:text-[#2E5BFF] transition-colors duration-200">Contacto</a>
       </nav>
 
       <!-- CTA & Mobile Toggle -->
@@ -516,12 +534,12 @@
   </header>
 
   <!-- Mobile Menu Overlay -->
-  <div id="mobileMenu" class="fixed inset-0 bg-black/95 backdrop-blur-md z-[40] flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
+  <div id="mobileMenu" class="fixed inset-0 bg-white/95 backdrop-blur-md z-[40] flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden">
     <nav class="flex flex-col items-center gap-8 text-center pt-20">
-      <a href="#proceso" class="text-2xl font-light text-white tracking-widest uppercase hover:text-accent transition-colors mobile-link">Proceso</a>
-      <a href="#servicios" class="text-2xl font-light text-white tracking-widest uppercase hover:text-accent transition-colors mobile-link">Servicios</a>
-      <a href="#metricas" class="text-2xl font-light text-white tracking-widest uppercase hover:text-accent transition-colors mobile-link">Métricas</a>
-      <a href="#contact" class="text-2xl font-light text-white tracking-widest uppercase hover:text-accent transition-colors mobile-link">Contacto</a>
+      <a href="#proceso" class="text-2xl font-light text-gray-900 tracking-widest uppercase hover:text-accent transition-colors mobile-link">Proceso</a>
+      <a href="#servicios" class="text-2xl font-light text-gray-900 tracking-widest uppercase hover:text-accent transition-colors mobile-link">Servicios</a>
+      <a href="#metricas" class="text-2xl font-light text-gray-900 tracking-widest uppercase hover:text-accent transition-colors mobile-link">Métricas</a>
+      <a href="#contact" class="text-2xl font-light text-gray-900 tracking-widest uppercase hover:text-accent transition-colors mobile-link">Contacto</a>
     </nav>
   </div>
 
@@ -530,11 +548,11 @@
     <canvas id="particles" class="absolute inset-0"></canvas>
     <div class="hero-overlay"></div>
 
-    <div class="relative z-10 text-center max-w-4xl px-8 md:px-12 py-8 bg-black/50 backdrop-blur-sm rounded-xl">
-      <h1 class="mb-6 text-white font-bold">
+    <div class="relative z-10 text-center max-w-4xl px-8">
+      <h1 class="mb-6 text-gray-900 font-bold">
         Instalamos inteligencia
       </h1>
-      <p class="text-xl md:text-2xl text-gray-200 mb-12 max-w-2xl mx-auto">
+      <p class="text-xl md:text-2xl text-gray-600 mb-12 max-w-2xl mx-auto">
         donde el negocio pierde control.
       </p>
 
@@ -895,14 +913,14 @@
   <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"></button>
 
   <!-- Footer -->
-  <footer class="bg-primary border-t border-subtle py-16">
+  <footer class="bg-gray-50 border-t border-gray-200 py-16">
     <div class="max-w-6xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
       <div>
-        <div class="wordmark mb-2">BlackPoint</div>
+        <div class="font-bold tracking-[0.15em] uppercase text-gray-900 mb-2">BLACKPOINT</div>
         <p class="text-muted text-sm">Systems & Intelligence Firm</p>
       </div>
       <div class="text-right">
-        <p class="text-sm mb-2">blackpointgroup.eu</p>
+        <p class="text-sm mb-2 text-gray-900">blackpointgroup.eu</p>
         <p class="text-muted text-xs">© 2025 BlackPoint. All rights reserved.</p>
       </div>
     </div>
@@ -973,10 +991,10 @@
     function animateParticles() {
       if (!ctx || window.innerWidth <= 768) return;
 
-      ctx.fillStyle = 'rgba(5, 5, 5, 0)';
+      ctx.fillStyle = 'rgba(250, 250, 250, 0)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+      ctx.strokeStyle = 'rgba(0, 0, 0, 0.15)';
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
       ctx.lineWidth = 1;
 
       particles.forEach((p) => {
@@ -1009,11 +1027,11 @@
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 100) {
-        header.classList.add('bg-black/80', 'backdrop-blur-md', 'border-white/10');
-        header.classList.remove('bg-black/60', 'backdrop-blur-sm', 'border-transparent');
+        header.classList.add('bg-white/80', 'backdrop-blur-md', 'border-gray-100');
+        header.classList.remove('bg-transparent', 'border-transparent');
       } else {
-        header.classList.add('bg-black/60', 'backdrop-blur-sm', 'border-transparent');
-        header.classList.remove('bg-black/80', 'backdrop-blur-md', 'border-white/10');
+        header.classList.add('bg-transparent', 'border-transparent');
+        header.classList.remove('bg-white/80', 'backdrop-blur-md', 'border-gray-100');
       }
 
       const backToTop = document.getElementById('backToTop');
