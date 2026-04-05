@@ -428,6 +428,7 @@
       padding: 1px;
       background: linear-gradient(135deg, #B8A020 0%, transparent 60%);
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       opacity: 0;
@@ -518,12 +519,7 @@
       position: absolute;
       top: 0;
       left: 0;
-    }
-
-    @media (max-width: 768px) {
-      #particles {
-        display: none;
-      }
+      pointer-events: none;
     }
 
     /* Mobile Menu handled by Tailwind */
@@ -792,10 +788,26 @@
       }
     }
 
-    @media (max-width: 480px) {
-      .section-padding {
-        padding: 48px 24px;
-      }
+    /* Mobile Carousel Snap Utilities */
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--border-subtle);
+      transition: all 0.3s ease;
+    }
+    .carousel-dot.active {
+      background-color: var(--accent);
+      width: 24px;
+      border-radius: 4px;
     }
   </style>
 </head>
@@ -1183,7 +1195,7 @@
 
   <!-- What We Build Section (Bento Grid) -->
   <section id="construimos" class="relative bg-primary section-padding">
-    <div class="max-w-[1400px] mx-auto px-10">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10">
       <div class="flex flex-col lg:flex-row justify-between items-end mb-24 gap-8">
         <div class="max-w-2xl">
             <h2 class="tracking-tighter mb-8" data-i18n="bento_title">Lo que construimos contigo</h2>
@@ -1194,9 +1206,9 @@
 
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div id="bento-carousel" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 -mx-6 px-6 md:mx-0 md:px-0 pb-4">
           <!-- Featured Bento Card -->
-          <div class="bento-card lg:col-span-2 stagger-child">
+          <div class="bento-card lg:col-span-2 stagger-child flex-shrink-0 w-[85vw] md:w-auto snap-start">
             <div class="tech-tag">
               <span class="status-dot active pulse"></span>
               <span data-i18n="bento_tag_1">Sync: Real-Time</span>
@@ -1227,7 +1239,7 @@
             </div>
           </div>
 
-          <div class="bento-card stagger-child" style="animation-delay: 0.1s">
+          <div class="bento-card stagger-child flex-shrink-0 w-[85vw] md:w-auto snap-start" style="animation-delay: 0.1s">
             <div class="tech-tag">
               <span class="status-dot active"></span>
               <span data-i18n="bento_tag_2">Latency: 12ms</span>
@@ -1250,7 +1262,7 @@
             </ul>
           </div>
 
-          <div class="bento-card stagger-child" style="animation-delay: 0.2s">
+          <div class="bento-card stagger-child flex-shrink-0 w-[85vw] md:w-auto snap-start" style="animation-delay: 0.2s">
              <div class="tech-tag">
               <span class="status-dot active"></span>
               <span data-i18n="bento_tag_3">Propagación</span>
@@ -1273,7 +1285,7 @@
             </ul>
           </div>
 
-          <div class="bento-card lg:col-span-2 stagger-child" style="animation-delay: 0.3s">
+          <div class="bento-card lg:col-span-2 stagger-child flex-shrink-0 w-[85vw] md:w-auto snap-start" style="animation-delay: 0.3s">
             <div id="next-level-cta" data-section="cta-highlight" class="flex flex-col md:flex-row justify-between items-center bg-gray-50 dark:bg-[#1A1A1A] dark:border dark:border-white/10 rounded-xl p-6 sm:p-10 md:p-12 gap-8 cta-box w-full">
                 <div class="w-full md:w-auto">
                    <h4 class="text-xl md:text-3xl font-bold mb-2 dark:text-white" data-i18n="bento_cta_t">¿Listo para el siguiente nivel?</h4>
@@ -1282,6 +1294,16 @@
                 <a href="#contact" class="btn btn-primary whitespace-nowrap w-full md:w-auto text-center" data-i18n="cta_diagnose">Solicitar Diagnóstico</a>
             </div>
           </div>
+          <!-- Spacer for right padding on mobile -->
+          <div class="md:hidden flex-shrink-0 w-4"></div>
+      </div>
+
+      <!-- Carousel Indicators -->
+      <div class="flex justify-center gap-2 mt-8 md:hidden">
+        <div class="carousel-dot active"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
+        <div class="carousel-dot"></div>
       </div>
     </div>
   </section>
@@ -1568,7 +1590,7 @@
 
     function initParticles() {
       particles = [];
-      const count = window.innerWidth > 768 ? 100 : 40;
+      const count = window.innerWidth > 768 ? 80 : 30;
       for (let i = 0; i < count; i++) {
         particles.push({
           x: Math.random() * canvas.width,
@@ -2060,6 +2082,24 @@
         localStorage.setItem('theme', 'light');
       }
     });
+
+    // ============ BENTO CAROUSEL DOTS ============
+    const bentoCarousel = document.getElementById('bento-carousel');
+    const bentoDots = document.querySelectorAll('.carousel-dot');
+    
+    if (bentoCarousel && bentoDots.length > 0) {
+      bentoCarousel.addEventListener('scroll', () => {
+        const scrollLeft = bentoCarousel.scrollLeft;
+        const card = bentoCarousel.querySelector('.bento-card');
+        if (card) {
+          const cardWidth = card.offsetWidth;
+          const index = Math.round(scrollLeft / cardWidth);
+          bentoDots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+          });
+        }
+      });
+    }
 
     animateParticles();
     observeElements();
