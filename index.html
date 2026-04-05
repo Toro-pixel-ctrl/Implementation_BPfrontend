@@ -804,10 +804,38 @@
       background-color: var(--border-subtle);
       transition: all 0.3s ease;
     }
-    .carousel-dot.active {
+    /* Mobile Services Vertical Carousel */
+    @media (max-width: 767px) {
+      .services-carousel {
+        height: 400px;
+        overflow: hidden;
+        position: relative;
+      }
+      .services-track {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .services-slide {
+        height: 400px;
+        flex-shrink: 0;
+        width: 100%;
+        padding-bottom: 32px;
+      }
+    }
+
+    .service-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--border-subtle);
+      transition: all 0.3s ease;
+    }
+    .service-dot.active {
       background-color: var(--accent);
-      width: 24px;
-      border-radius: 4px;
+      width: 18px;
+      border-radius: 3px;
     }
   </style>
 </head>
@@ -819,8 +847,8 @@
       
       <!-- Logo -->
       <a href="#" class="flex flex-col justify-center border-none no-underline logo">
-        <span class="font-bold text-lg tracking-[0.2em] text-gray-900 dark:text-white leading-none">BLACKPOINT</span>
-        <span class="text-[9px] text-gray-400 tracking-widest uppercase mt-1">Systems & Intelligence</span>
+        <span class="font-bold text-lg tracking-[0.2em] text-[#1A1A1A] dark:text-white leading-none">BLACKPOINT</span>
+        <span class="text-[9px] text-gray-500 dark:text-gray-400 tracking-widest uppercase mt-1">Systems & Intelligence</span>
       </a>
 
       <!-- Desktop Nav -->
@@ -887,7 +915,7 @@
   </div>
 
   <!-- Hero Section -->
-  <section class="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden">
+  <section class="relative w-full min-h-[75vh] md:min-h-screen flex flex-col items-center justify-center overflow-hidden">
     <canvas id="particles" class="absolute inset-0"></canvas>
     <div class="hero-overlay"></div>
 
@@ -920,7 +948,7 @@
       </div>
     </div>
 
-    <div class="scroll-indicator">
+    <div class="scroll-indicator !bottom-12 md:bottom-20">
       <span data-i18n="hero_scroll">Desplazar</span>
     </div>
   </section>
@@ -1025,9 +1053,10 @@
         <p class="body-text text-xl section-subtitle" data-i18n="serv_subtitle">Cada módulo resuelve un punto de fractura específico. Nada es genérico. Todo es medible.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="services-carousel">
+        <div id="services-track" class="services-track md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:transform-none">
         <!-- Card 1: Agentes de Voz -->
-        <div class="system-card stagger-child">
+        <div class="system-card services-slide mb-8 md:mb-0">
           <div class="flex justify-between items-start mb-2">
             <div class="icon-box">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1054,7 +1083,7 @@
         </div>
 
         <!-- Card 2: Automatización de Outreach -->
-        <div class="system-card stagger-child" style="animation-delay: 0.1s">
+        <div class="system-card services-slide mb-8 md:mb-0" style="animation-delay: 0.1s">
           <div class="flex justify-between items-start mb-2">
             <div class="icon-box">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1081,7 +1110,7 @@
         </div>
 
         <!-- Card 3: Cualificación Inteligente -->
-        <div class="system-card stagger-child" style="animation-delay: 0.2s">
+        <div class="system-card services-slide mb-8 md:mb-0" style="animation-delay: 0.2s">
           <div class="flex justify-between items-start mb-2">
             <div class="icon-box">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1108,7 +1137,7 @@
         </div>
 
         <!-- Card 4: Consolidación de Reporting -->
-        <div class="system-card stagger-child">
+        <div class="system-card services-slide mb-8 md:mb-0">
           <div class="flex justify-between items-start mb-2">
             <div class="icon-box">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1137,7 +1166,7 @@
         </div>
 
         <!-- Card 5: Automatización de Soporte -->
-        <div class="system-card stagger-child" style="animation-delay: 0.1s">
+        <div class="system-card services-slide mb-8 md:mb-0" style="animation-delay: 0.1s">
           <div class="flex justify-between items-start mb-2">
             <div class="icon-box">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1164,7 +1193,7 @@
         </div>
 
         <!-- Card 6: Procesos Internos -->
-        <div class="system-card stagger-child" style="animation-delay: 0.2s">
+        <div class="system-card services-slide" style="animation-delay: 0.2s">
           <div class="flex justify-between items-start mb-2">
             <div class="icon-box">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
