@@ -2116,27 +2116,21 @@
     let servInterval;
     let servTimeout;
 
-    function smoothScrollTo(element, target, duration) {
-      const start = element.scrollLeft;
-      const change = target - start;
+    function animateScroll(container, targetScrollLeft, duration) {
+      const start = container.scrollLeft;
+      const distance = targetScrollLeft - start;
       const startTime = performance.now();
 
-      function animateScroll(currentTime) {
+      function step(currentTime) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
-
-        // Ease-in-out cubic curve
         const ease = progress < 0.5
-          ? 4 * progress * progress * progress
-          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-
-        element.scrollLeft = start + change * ease;
-
-        if (progress < 1) {
-          requestAnimationFrame(animateScroll);
-        }
+          ? 2 * progress * progress
+          : -1 + (4 - 2 * progress) * progress;
+        container.scrollLeft = start + distance * ease;
+        if (progress < 1) requestAnimationFrame(step);
       }
-      requestAnimationFrame(animateScroll);
+      requestAnimationFrame(step);
     }
 
     function startServAutoScroll() {
@@ -2146,11 +2140,15 @@
           const cards = servScroll.querySelectorAll('.system-card');
           if (cards.length > 0) {
             const cardWidth = cards[0].offsetWidth + 16; // 16px is gap-4
-            const currentScroll = servScroll.scrollLeft;
-            const currentIndex = Math.round(currentScroll / cardWidth);
-            const nextIndex = (currentIndex + 1) % cards.length;
+            const maxScroll = servScroll.scrollWidth - servScroll.clientWidth;
+            const currentIndex = Math.round(servScroll.scrollLeft / cardWidth);
+            let nextIndex = currentIndex + 1;
             
-            smoothScrollTo(servScroll, nextIndex * cardWidth, 600);
+            if (nextIndex >= cards.length) {
+              nextIndex = 0;
+            }
+            
+            animateScroll(servScroll, nextIndex * cardWidth, 700);
           }
         }, 4000);
       }
