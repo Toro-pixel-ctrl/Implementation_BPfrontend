@@ -852,18 +852,18 @@
   </header>
 
   <!-- Mobile Menu Overlay -->
-  <div id="mobileMenu" class="fixed inset-0 bg-white dark:bg-black backdrop-blur-xl z-[2000] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-500 md:hidden">
+  <div id="mobileMenu" class="fixed inset-0 bg-white dark:bg-[#0A0A0A] backdrop-blur-xl z-[2000] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-500 md:hidden">
     <!-- Close Button -->
-    <button id="mobileMenuClose" class="absolute top-6 right-6 p-2 text-gray-500 dark:text-gray-400" aria-label="Close Menu">
+    <button id="mobileMenuClose" class="absolute top-6 right-6 p-2 text-[#1A1A1A] dark:text-white" aria-label="Close Menu">
       <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
     </button>
 
     <nav class="flex flex-col items-center gap-10 text-center w-full px-10">
       <div class="flex flex-col items-center gap-8 mb-4">
-        <a href="#proceso" class="text-3xl font-bold tracking-tighter hover:text-accent transition-colors mobile-link" data-i18n="nav_process">Proceso</a>
-        <a href="#servicios" class="text-3xl font-bold tracking-tighter hover:text-accent transition-colors mobile-link" data-i18n="nav_services">Servicios</a>
-        <a href="#metricas" class="text-3xl font-bold tracking-tighter hover:text-accent transition-colors mobile-link" data-i18n="nav_metrics">Métricas</a>
-        <a href="contacto/" class="text-3xl font-bold tracking-tighter hover:text-accent transition-colors mobile-link" data-i18n="nav_contact">Contacto</a>
+        <a href="#proceso" class="text-3xl font-bold tracking-tighter text-[#1A1A1A] dark:text-white hover:text-accent transition-colors mobile-link" data-i18n="nav_process">Proceso</a>
+        <a href="#servicios" class="text-3xl font-bold tracking-tighter text-[#1A1A1A] dark:text-white hover:text-accent transition-colors mobile-link" data-i18n="nav_services">Servicios</a>
+        <a href="#metricas" class="text-3xl font-bold tracking-tighter text-[#1A1A1A] dark:text-white hover:text-accent transition-colors mobile-link" data-i18n="nav_metrics">Métricas</a>
+        <a href="contacto/" class="text-3xl font-bold tracking-tighter text-[#1A1A1A] dark:text-white hover:text-accent transition-colors mobile-link" data-i18n="nav_contact">Contacto</a>
       </div>
 
       <div class="w-full h-px bg-gray-100 dark:bg-white/10 my-2 max-w-[200px]"></div>
@@ -871,14 +871,14 @@
       <!-- Theme & Lang Toggles for Mobile -->
       <div class="flex flex-col items-center gap-8 my-4">
         <div class="flex items-center gap-6">
-          <button id="mobileThemeToggle" class="flex items-center gap-3 py-2 px-4 rounded-full border border-gray-200 dark:border-white/20 text-sm font-medium">
+          <button id="mobileThemeToggle" class="flex items-center gap-3 py-2 px-4 rounded-full border border-gray-200 dark:border-white/20 text-sm font-medium text-[#1A1A1A] dark:text-white">
             <svg class="w-4 h-4 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
             <svg class="w-4 h-4 hidden dark:block text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 18v1m9-9h1m-18 0H2m3.364-7.364l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707.707M12 7a5 5 0 100 10 5 5 0 000-10z"></path></svg>
             <span class="dark:hidden">Dark Mode</span>
             <span class="hidden dark:block">Light Mode</span>
           </button>
           
-          <button id="mobileLangToggle" class="py-2 px-6 rounded-full border border-gray-200 dark:border-white/20 text-sm font-bold bg-gray-50 dark:bg-transparent" onclick="toggleLanguage()">ES</button>
+          <button id="mobileLangToggle" class="py-2 px-6 rounded-full border border-gray-200 dark:border-white/20 text-sm font-bold bg-gray-50 dark:bg-transparent text-[#1A1A1A] dark:text-white" onclick="toggleLanguage()">ES</button>
         </div>
       </div>
 
