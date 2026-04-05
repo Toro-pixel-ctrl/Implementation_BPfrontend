@@ -1032,7 +1032,7 @@
         <p class="body-text text-xl section-subtitle" data-i18n="serv_subtitle">Cada módulo resuelve un punto de fractura específico. Nada es genérico. Todo es medible.</p>
       </div>
 
-      <div class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-10 px-10 gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:mx-0 md:px-0">
+      <div id="services-scroll-container" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-10 px-10 gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:mx-0 md:px-0">
         <!-- Card 1: Agentes de Voz -->
         <div class="system-card flex-shrink-0 w-[85vw] md:w-auto snap-start mb-8 md:mb-0">
           <div class="flex justify-between items-start mb-2">
@@ -2110,6 +2110,46 @@
 
     animateParticles();
     observeElements();
+
+    // ============ SERVICES HORIZONTAL AUTO-SCROLL (Mobile) ============
+    const servScroll = document.getElementById('services-scroll-container');
+    let servInterval;
+    let servTimeout;
+
+    function startServAutoScroll() {
+      if (window.innerWidth < 768 && servScroll) {
+        clearInterval(servInterval);
+        servInterval = setInterval(() => {
+          const cards = servScroll.querySelectorAll('.system-card');
+          if (cards.length > 0) {
+            const cardWidth = cards[0].offsetWidth + 16; // 16px is gap-4
+            const currentScroll = servScroll.scrollLeft;
+            const currentIndex = Math.round(currentScroll / cardWidth);
+            const nextIndex = (currentIndex + 1) % cards.length;
+            
+            servScroll.scrollTo({
+              left: nextIndex * cardWidth,
+              behavior: 'smooth'
+            });
+          }
+        }, 4000);
+      }
+    }
+
+    if (servScroll) {
+      servScroll.addEventListener('touchstart', () => {
+        clearInterval(servInterval);
+        clearTimeout(servTimeout);
+      }, { passive: true });
+      
+      servScroll.addEventListener('touchend', () => {
+        servTimeout = setTimeout(startServAutoScroll, 5000);
+      }, { passive: true });
+
+      if (window.innerWidth < 768) {
+        startServAutoScroll();
+      }
+    }
 
     // Update Last Scan Time
     const scanTimeEl = document.getElementById('lastScanTime');
