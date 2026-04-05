@@ -1219,8 +1219,19 @@
           </div>
         </div>
       </div>
+      
+      <!-- Dots indicator for services on mobile -->
+      <div id="services-dots" class="flex justify-center gap-2 mt-8 md:hidden">
+        <div class="service-dot active"></div>
+        <div class="service-dot"></div>
+        <div class="service-dot"></div>
+        <div class="service-dot"></div>
+        <div class="service-dot"></div>
+        <div class="service-dot"></div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- What We Build Section (Bento Grid) -->
   <section id="construimos" class="relative bg-primary section-padding">
@@ -2129,6 +2140,78 @@
         }
       });
     }
+
+    // ============ SERVICES VERTICAL CAROUSEL (Mobile) ============
+    const servicesTrack = document.getElementById('services-track');
+    const servicesDots = document.querySelectorAll('.service-dot');
+    let servicesIndex = 0;
+    let servicesInterval;
+    let servicesInteractionTimer;
+
+    function updateServicesCarousel() {
+      if (window.innerWidth < 768) {
+        servicesTrack.style.transform = `translateY(-${servicesIndex * 400}px)`;
+        servicesDots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === servicesIndex);
+        });
+      } else {
+        servicesTrack.style.transform = 'none';
+      }
+    }
+
+    function rotateServices() {
+      const slides = document.querySelectorAll('.services-slide');
+      servicesIndex = (servicesIndex + 1) % slides.length;
+      updateServicesCarousel();
+    }
+
+    function startServicesAutoRotate() {
+      if (servicesInterval) clearInterval(servicesInterval);
+      servicesInterval = setInterval(rotateServices, 4000);
+    }
+
+    function pauseServicesAutoRotate() {
+      clearInterval(servicesInterval);
+      if (servicesInteractionTimer) clearTimeout(servicesInteractionTimer);
+      servicesInteractionTimer = setTimeout(startServicesAutoRotate, 5000);
+    }
+
+    // Swipe Support
+    let touchStartY = 0;
+    if (servicesTrack) {
+      servicesTrack.addEventListener('touchstart', (e) => {
+        touchStartY = e.touches[0].clientY;
+        pauseServicesAutoRotate();
+      }, { passive: true });
+
+      servicesTrack.addEventListener('touchend', (e) => {
+        const touchEndY = e.changedTouches[0].clientY;
+        const diff = touchStartY - touchEndY;
+        const slides = document.querySelectorAll('.services-slide');
+
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) {
+            servicesIndex = (servicesIndex + 1) % slides.length;
+          } else {
+            servicesIndex = (servicesIndex - 1 + slides.length) % slides.length;
+          }
+          updateServicesCarousel();
+        }
+      }, { passive: true });
+    }
+
+    if (window.innerWidth < 768) {
+      startServicesAutoRotate();
+    }
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        clearInterval(servicesInterval);
+        servicesTrack.style.transform = 'none';
+      } else if (!servicesInterval) {
+        startServicesAutoRotate();
+      }
+    });
 
     animateParticles();
     observeElements();
