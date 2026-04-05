@@ -816,24 +816,6 @@
       background-color: var(--border-subtle);
       transition: all 0.3s ease;
     }
-    /* Mobile Services Horizontal Carousel */
-    @media (max-width: 767px) {
-      .services-carousel {
-        width: 100%;
-        overflow: hidden;
-        position: relative;
-      }
-      .services-track {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      .services-slide {
-        flex: 0 0 100%;
-        width: 100%;
-      }
-    }
   </style>
 </head>
 
@@ -912,7 +894,7 @@
   </div>
 
   <!-- Hero Section -->
-  <section class="relative w-full min-h-[85vh] md:min-h-screen flex flex-col items-center justify-center overflow-hidden pt-44 pb-32 md:pt-0 md:pb-0">
+  <section class="relative w-full min-h-[90vh] md:min-h-screen flex flex-col items-center justify-start md:justify-center overflow-hidden pt-[35vh] pb-24 md:pt-0 md:pb-0">
     <canvas id="particles" class="absolute inset-0"></canvas>
     <div class="hero-overlay"></div>
 
@@ -1050,10 +1032,9 @@
         <p class="body-text text-xl section-subtitle" data-i18n="serv_subtitle">Cada módulo resuelve un punto de fractura específico. Nada es genérico. Todo es medible.</p>
       </div>
 
-      <div class="services-carousel">
-        <div id="services-track" class="services-track md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:transform-none">
+      <div class="flex overflow-x-auto scrollbar-hide -mx-10 px-10 gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:mx-0 md:px-0">
         <!-- Card 1: Agentes de Voz -->
-        <div class="system-card services-slide mb-8 md:mb-0">
+        <div class="system-card flex-shrink-0 w-[85vw] md:w-auto mb-8 md:mb-0">
           <div class="flex justify-between items-start mb-2">
             <div class="icon-box">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1080,7 +1061,7 @@
         </div>
 
         <!-- Card 2: Automatización de Outreach -->
-        <div class="system-card services-slide mb-8 md:mb-0" style="animation-delay: 0.1s">
+        <div class="system-card flex-shrink-0 w-[85vw] md:w-auto mb-8 md:mb-0" style="animation-delay: 0.1s">
           <div class="flex justify-between items-start mb-2">
             <div class="icon-box">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1107,7 +1088,7 @@
         </div>
 
         <!-- Card 3: Cualificación Inteligente -->
-        <div class="system-card services-slide mb-8 md:mb-0" style="animation-delay: 0.2s">
+        <div class="system-card flex-shrink-0 w-[85vw] md:w-auto mb-8 md:mb-0" style="animation-delay: 0.2s">
           <div class="flex justify-between items-start mb-2">
             <div class="icon-box">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1134,7 +1115,7 @@
         </div>
 
         <!-- Card 4: Consolidación de Reporting -->
-        <div class="system-card services-slide mb-8 md:mb-0">
+        <div class="system-card flex-shrink-0 w-[85vw] md:w-auto mb-8 md:mb-0">
           <div class="flex justify-between items-start mb-2">
             <div class="icon-box">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1163,7 +1144,7 @@
         </div>
 
         <!-- Card 5: Automatización de Soporte -->
-        <div class="system-card services-slide mb-8 md:mb-0" style="animation-delay: 0.1s">
+        <div class="system-card flex-shrink-0 w-[85vw] md:w-auto mb-8 md:mb-0" style="animation-delay: 0.1s">
           <div class="flex justify-between items-start mb-2">
             <div class="icon-box">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1190,7 +1171,7 @@
         </div>
 
         <!-- Card 6: Procesos Internos -->
-        <div class="system-card services-slide" style="animation-delay: 0.2s">
+        <div class="system-card flex-shrink-0 w-[85vw] md:w-auto" style="animation-delay: 0.2s">
           <div class="flex justify-between items-start mb-2">
             <div class="icon-box">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1217,7 +1198,6 @@
         </div>
       </div>
     </div>
-  </div>
 </section>
 
   <!-- What We Build Section (Bento Grid) -->
@@ -2127,74 +2107,6 @@
         }
       });
     }
-
-    // ============ SERVICES HORIZONTAL CAROUSEL (Mobile) ============
-    const servicesTrack = document.getElementById('services-track');
-    let servicesIndex = 0;
-    let servicesInterval;
-    let servicesInteractionTimer;
-
-    function updateServicesCarousel() {
-      if (window.innerWidth < 768 && servicesTrack) {
-        servicesTrack.style.transform = `translateX(-${servicesIndex * 100}%)`;
-      } else if (servicesTrack) {
-        servicesTrack.style.transform = 'none';
-      }
-    }
-
-    function rotateServices() {
-      const slides = document.querySelectorAll('.services-slide');
-      servicesIndex = (servicesIndex + 1) % slides.length;
-      updateServicesCarousel();
-    }
-
-    function startServicesAutoRotate() {
-      if (servicesInterval) clearInterval(servicesInterval);
-      servicesInterval = setInterval(rotateServices, 4000);
-    }
-
-    function pauseServicesAutoRotate() {
-      clearInterval(servicesInterval);
-      if (servicesInteractionTimer) clearTimeout(servicesInteractionTimer);
-      servicesInteractionTimer = setTimeout(startServicesAutoRotate, 5000);
-    }
-
-    // Swipe Support
-    let touchStartX = 0;
-    if (servicesTrack) {
-      servicesTrack.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX;
-        pauseServicesAutoRotate();
-      }, { passive: true });
-
-      servicesTrack.addEventListener('touchend', (e) => {
-        const touchEndX = e.changedTouches[0].clientX;
-        const diff = touchStartX - touchEndX;
-        const slides = document.querySelectorAll('.services-slide');
-
-        if (Math.abs(diff) > 50) {
-          if (diff > 0) {
-            servicesIndex = (servicesIndex + 1) % slides.length;
-          } else {
-            servicesIndex = (servicesIndex - 1 + slides.length) % slides.length;
-          }
-          updateServicesCarousel();
-        }
-      }, { passive: true });
-    }
-
-    if (window.innerWidth < 768) {
-      startServicesAutoRotate();
-    }
-
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768) {
-        clearInterval(servicesInterval);
-        servicesTrack.style.transform = 'none';
-      } else if (!servicesInterval) {
-        startServicesAutoRotate();
-      }
-    });
 
     animateParticles();
     observeElements();
