@@ -2116,6 +2116,29 @@
     let servInterval;
     let servTimeout;
 
+    function smoothScrollTo(element, target, duration) {
+      const start = element.scrollLeft;
+      const change = target - start;
+      const startTime = performance.now();
+
+      function animateScroll(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Ease-in-out cubic curve
+        const ease = progress < 0.5
+          ? 4 * progress * progress * progress
+          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+        element.scrollLeft = start + change * ease;
+
+        if (progress < 1) {
+          requestAnimationFrame(animateScroll);
+        }
+      }
+      requestAnimationFrame(animateScroll);
+    }
+
     function startServAutoScroll() {
       if (window.innerWidth < 768 && servScroll) {
         clearInterval(servInterval);
@@ -2127,10 +2150,7 @@
             const currentIndex = Math.round(currentScroll / cardWidth);
             const nextIndex = (currentIndex + 1) % cards.length;
             
-            servScroll.scrollTo({
-              left: nextIndex * cardWidth,
-              behavior: 'smooth'
-            });
+            smoothScrollTo(servScroll, nextIndex * cardWidth, 600);
           }
         }, 4000);
       }
