@@ -827,25 +827,12 @@
         display: flex;
         flex-direction: row;
         width: 100%;
-        transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       }
       .services-slide {
         flex: 0 0 100%;
         width: 100%;
       }
-    }
-
-    .service-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: var(--border-subtle);
-      transition: all 0.3s ease;
-    }
-    .service-dot.active {
-      background-color: var(--accent);
-      width: 18px;
-      border-radius: 3px;
     }
   </style>
 </head>
@@ -925,7 +912,7 @@
   </div>
 
   <!-- Hero Section -->
-  <section class="relative w-full min-h-[80vh] md:min-h-screen flex flex-col items-center justify-end md:justify-center overflow-hidden pt-28 pb-20 md:pt-0 md:pb-0">
+  <section class="relative w-full min-h-[85vh] md:min-h-screen flex flex-col items-center justify-center overflow-hidden pt-44 pb-32 md:pt-0 md:pb-0">
     <canvas id="particles" class="absolute inset-0"></canvas>
     <div class="hero-overlay"></div>
 
@@ -1228,16 +1215,6 @@
             </p>
           </div>
         </div>
-      </div>
-      
-      <!-- Dots indicator for services on mobile -->
-      <div id="services-dots" class="flex justify-center gap-2 mt-8 md:hidden">
-        <div class="service-dot active"></div>
-        <div class="service-dot"></div>
-        <div class="service-dot"></div>
-        <div class="service-dot"></div>
-        <div class="service-dot"></div>
-        <div class="service-dot"></div>
       </div>
     </div>
   </div>
@@ -2151,20 +2128,16 @@
       });
     }
 
-    // ============ SERVICES VERTICAL CAROUSEL (Mobile) ============
+    // ============ SERVICES HORIZONTAL CAROUSEL (Mobile) ============
     const servicesTrack = document.getElementById('services-track');
-    const servicesDots = document.querySelectorAll('.service-dot');
     let servicesIndex = 0;
     let servicesInterval;
     let servicesInteractionTimer;
 
     function updateServicesCarousel() {
-      if (window.innerWidth < 768) {
+      if (window.innerWidth < 768 && servicesTrack) {
         servicesTrack.style.transform = `translateX(-${servicesIndex * 100}%)`;
-        servicesDots.forEach((dot, i) => {
-          dot.classList.toggle('active', i === servicesIndex);
-        });
-      } else {
+      } else if (servicesTrack) {
         servicesTrack.style.transform = 'none';
       }
     }
