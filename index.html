@@ -2111,61 +2111,51 @@
     animateParticles();
     observeElements();
 
-    // ============ SERVICES HORIZONTAL AUTO-SCROLL (Mobile) ============
+    // ============ SERVICES CONVEYOR BELT (Mobile) ============
     const servScroll = document.getElementById('services-scroll-container');
-    let servInterval;
-    let servTimeout;
+    let conveyorId;
+    let conveyorPaused = false;
+    let conveyorResumeTimer;
 
-    function animateScroll(container, targetScrollLeft, duration) {
-      const start = container.scrollLeft;
-      const distance = targetScrollLeft - start;
-      const startTime = performance.now();
-
-      function step(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const ease = progress < 0.5
-          ? 2 * progress * progress
-          : -1 + (4 - 2 * progress) * progress;
-        container.scrollLeft = start + distance * ease;
-        if (progress < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
+    // Duplicate content for seamless loop
+    if (servScroll && window.innerWidth < 768) {
+      const children = Array.from(servScroll.children);
+      children.forEach(child => {
+        const clone = child.cloneNode(true);
+        servScroll.appendChild(clone);
+      });
     }
 
-    function startServAutoScroll() {
-      if (window.innerWidth < 768 && servScroll) {
-        clearInterval(servInterval);
-        servInterval = setInterval(() => {
-          const cards = servScroll.querySelectorAll('.system-card');
-          if (cards.length > 0) {
-            const cardWidth = cards[0].offsetWidth + 16; // 16px is gap-4
-            const maxScroll = servScroll.scrollWidth - servScroll.clientWidth;
-            const currentIndex = Math.round(servScroll.scrollLeft / cardWidth);
-            let nextIndex = currentIndex + 1;
-            
-            if (nextIndex >= cards.length) {
-              nextIndex = 0;
-            }
-            
-            animateScroll(servScroll, nextIndex * cardWidth, 700);
-          }
-        }, 4000);
+    function runConveyor() {
+      if (conveyorPaused || !servScroll || window.innerWidth >= 768) return;
+      
+      // Steady incremental move
+      servScroll.scrollLeft += 0.5;
+
+      const halfWidth = servScroll.scrollWidth / 2;
+      if (servScroll.scrollLeft >= halfWidth) {
+        servScroll.scrollLeft = 0;
       }
+      
+      conveyorId = requestAnimationFrame(runConveyor);
     }
 
     if (servScroll) {
       servScroll.addEventListener('touchstart', () => {
-        clearInterval(servInterval);
-        clearTimeout(servTimeout);
+        conveyorPaused = true;
+        cancelAnimationFrame(conveyorId);
+        if (conveyorResumeTimer) clearTimeout(conveyorResumeTimer);
       }, { passive: true });
       
       servScroll.addEventListener('touchend', () => {
-        servTimeout = setTimeout(startServAutoScroll, 5000);
+        conveyorResumeTimer = setTimeout(() => {
+          conveyorPaused = false;
+          runConveyor();
+        }, 2000);
       }, { passive: true });
 
       if (window.innerWidth < 768) {
-        startServAutoScroll();
+        runConveyor();
       }
     }
 
