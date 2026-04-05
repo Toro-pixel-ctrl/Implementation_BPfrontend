@@ -816,6 +816,30 @@
       background-color: var(--border-subtle);
       transition: all 0.3s ease;
     }
+
+    /* CSS Carousel Animation */
+    @keyframes scrollLeft {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    #services-inner {
+      display: flex;
+      width: max-content;
+      animation: scrollLeft 24s linear infinite;
+    }
+
+    @media (min-width: 768px) {
+      #services-inner {
+        display: grid !important;
+        width: 100% !important;
+        animation: none !important;
+        transform: none !important;
+      }
+      .service-clone {
+        display: none !important;
+      }
+    }
   </style>
 </head>
 
@@ -1032,168 +1056,335 @@
         <p class="body-text text-xl section-subtitle" data-i18n="serv_subtitle">Cada módulo resuelve un punto de fractura específico. Nada es genérico. Todo es medible.</p>
       </div>
 
-      <div id="services-scroll-container" class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide -mx-10 px-10 gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:mx-0 md:px-0">
-        <!-- Card 1: Agentes de Voz -->
-        <div class="system-card flex-shrink-0 w-[85vw] md:w-auto snap-start mb-8 md:mb-0">
-          <div class="flex justify-between items-start mb-2">
-            <div class="icon-box">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m8 0h-3m4-8a3 3 0 01-3 3H9a3 3 0 01-3-3V5a3 3 0 013-3h6a3 3 0 013 3v6z"></path>
-              </svg>
+      <div id="services-scroll-container" class="overflow-x-auto scrollbar-hide -mx-10 px-10 md:mx-0 md:px-0">
+        <div id="services-inner" class="flex gap-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-4">
+          <!-- Card 1: Agentes de Voz -->
+          <div class="system-card flex-shrink-0 w-[85vw] md:w-auto mb-8 md:mb-0">
+            <div class="flex justify-between items-start mb-2">
+              <div class="icon-box">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m8 0h-3m4-8a3 3 0 01-3 3H9a3 3 0 01-3-3V5a3 3 0 013-3h6a3 3 0 013 3v6z"></path>
+                </svg>
+              </div>
+              <span class="text-[9px] font-mono text-gray-400 opacity-60">VOX-CORE-01</span>
             </div>
-            <span class="text-[9px] font-mono text-gray-400 opacity-60">VOX-CORE-01</span>
+            <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_1_t">Agentes de Voz</h3>
+            <div class="space-y-4">
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_1_d1">Atención telefónica automatizada 24/7 inbound y outbound.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_1_d2">Reservas, confirmaciones y seguimiento sin intervención humana.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_1_d3">Análisis automático de sentimiento y contexto de cada conversación.</span>
+              </p>
+            </div>
           </div>
-          <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_1_t">Agentes de Voz</h3>
-          <div class="space-y-4">
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              <span data-i18n="serv_1_d1">Atención telefónica automatizada 24/7 inbound y outbound.</span>
-            </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              <span data-i18n="serv_1_d2">Reservas, confirmaciones y seguimiento sin intervención humana.</span>
-            </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              <span data-i18n="serv_1_d3">Análisis automático de sentimiento y contexto de cada conversación.</span>
-            </p>
-          </div>
-        </div>
 
-        <!-- Card 2: Automatización de Outreach -->
-        <div class="system-card flex-shrink-0 w-[85vw] md:w-auto snap-start mb-8 md:mb-0" style="animation-delay: 0.1s">
-          <div class="flex justify-between items-start mb-2">
-            <div class="icon-box">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-              </svg>
+          <!-- Card 2: Automatización de Outreach -->
+          <div class="system-card flex-shrink-0 w-[85vw] md:w-auto mb-8 md:mb-0" style="animation-delay: 0.1s">
+            <div class="flex justify-between items-start mb-2">
+              <div class="icon-box">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <span class="text-[9px] font-mono text-gray-400 opacity-60">HUB-SYNC-B2B</span>
             </div>
-            <span class="text-[9px] font-mono text-gray-400 opacity-60">HUB-SYNC-B2B</span>
+            <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_2_t">Automatización de Outreach</h3>
+            <div class="space-y-4">
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_2_d1">Secuencias multicanal orquestadas sin intervención manual.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_2_d2">Personalización avanzada por perfil de decisor y sector.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_2_d3">Sincronización directa y enriquecimiento de datos en el CRM.</span>
+              </p>
+            </div>
           </div>
-          <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_2_t">Automatización de Outreach</h3>
-          <div class="space-y-4">
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              <span data-i18n="serv_2_d1">Secuencias multicanal orquestadas sin intervención manual.</span>
-            </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              <span data-i18n="serv_2_d2">Personalización avanzada por perfil de decisor y sector.</span>
-            </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              <span data-i18n="serv_2_d3">Sincronización directa y enriquecimiento de datos en el CRM.</span>
-            </p>
-          </div>
-        </div>
 
-        <!-- Card 3: Cualificación Inteligente -->
-        <div class="system-card flex-shrink-0 w-[85vw] md:w-auto snap-start mb-8 md:mb-0" style="animation-delay: 0.2s">
-          <div class="flex justify-between items-start mb-2">
-            <div class="icon-box">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-2.06 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946 2.06 3.42 3.42 0 011.607 4.126 3.42 3.42 0 00.122 2.81 3.42 3.42 0 01-1.607 4.126 3.42 3.42 0 00-1.946 2.06 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-2.06 3.42 3.42 0 01-1.607-4.126 3.42 3.42 0 00-.122-2.81 3.42 3.42 0 011.607-4.126z"></path>
-              </svg>
+          <!-- Card 3: Cualificación Inteligente -->
+          <div class="system-card flex-shrink-0 w-[85vw] md:w-auto mb-8 md:mb-0" style="animation-delay: 0.2s">
+            <div class="flex justify-between items-start mb-2">
+              <div class="icon-box">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-2.06 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946 2.06 3.42 3.42 0 011.607 4.126 3.42 3.42 0 00.122 2.81 3.42 3.42 0 01-1.607 4.126 3.42 3.42 0 00-1.946 2.06 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-2.06 3.42 3.42 0 01-1.607-4.126 3.42 3.42 0 00-.122-2.81 3.42 3.42 0 011.607-4.126z"></path>
+                </svg>
+              </div>
+              <span class="text-[9px] font-mono text-gray-400 opacity-60">QUAL-SCAN-04</span>
             </div>
-            <span class="text-[9px] font-mono text-gray-400 opacity-60">QUAL-SCAN-04</span>
+            <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_3_t">Cualificación Inteligente</h3>
+            <div class="space-y-4">
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_3_d1">Flujos automáticos de validación y scoring de leads.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_3_d2">Escalamiento por prioridad en tiempo real.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_3_d3">Reducción drástica del tiempo hasta la primera respuesta.</span>
+              </p>
+            </div>
           </div>
-          <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_3_t">Cualificación Inteligente</h3>
-          <div class="space-y-4">
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              <span data-i18n="serv_3_d1">Flujos automáticos de validación y scoring de leads.</span>
-            </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              <span data-i18n="serv_3_d2">Escalamiento por prioridad en tiempo real.</span>
-            </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              <span data-i18n="serv_3_d3">Reducción drástica del tiempo hasta la primera respuesta.</span>
-            </p>
-          </div>
-        </div>
 
-        <!-- Card 4: Consolidación de Reporting -->
-        <div class="system-card flex-shrink-0 w-[85vw] md:w-auto snap-start mb-8 md:mb-0">
-          <div class="flex justify-between items-start mb-2">
-            <div class="icon-box">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-              </svg>
+          <!-- Card 4: Consolidación de Reporting -->
+          <div class="system-card flex-shrink-0 w-[85vw] md:w-auto mb-8 md:mb-0">
+            <div class="flex justify-between items-start mb-2">
+              <div class="icon-box">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+              </div>
+              <span class="text-[9px] font-mono text-gray-400 opacity-60">REP-ALGO-V2</span>
             </div>
-            <span class="text-[9px] font-mono text-gray-400 opacity-60">REP-ALGO-V2</span>
+            <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_4_t">Consolidación de Reporting</h3>
+            <div class="space-y-4">
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_4_d1">Agregación automática de datos operativos disparatados.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="text-accent mt-1.5 flex-shrink-0">
+                  <svg class="w-1.5 h-1.5" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3"/></svg>
+                </span>
+                <span data-i18n="serv_4_d2">Detección de anomalías y varianzas estadísticas.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_4_d3">Informes ejecutivos listos sin compilación manual.</span>
+              </p>
+            </div>
           </div>
-          <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_4_t">Consolidación de Reporting</h3>
-          <div class="space-y-4">
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              <span data-i18n="serv_4_d1">Agregación automática de datos operativos disparatados.</span>
-            </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
-              <span class="text-accent mt-1.5 flex-shrink-0">
-                <svg class="w-1.5 h-1.5" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3"/></svg>
-              </span>
-              <span data-i18n="serv_4_d2">Detección de anomalías y varianzas estadísticas.</span>
-            </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              <span data-i18n="serv_4_d3">Informes ejecutivos listos sin compilación manual.</span>
-            </p>
-          </div>
-        </div>
 
-        <!-- Card 5: Automatización de Soporte -->
-        <div class="system-card flex-shrink-0 w-[85vw] md:w-auto snap-start mb-8 md:mb-0" style="animation-delay: 0.1s">
-          <div class="flex justify-between items-start mb-2">
-            <div class="icon-box">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
-              </svg>
+          <!-- Card 5: Automatización de Soporte -->
+          <div class="system-card flex-shrink-0 w-[85vw] md:w-auto mb-8 md:mb-0" style="animation-delay: 0.1s">
+            <div class="flex justify-between items-start mb-2">
+              <div class="icon-box">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+              </div>
+              <span class="text-[9px] font-mono text-gray-400 opacity-60">SUP-NODE-ASYNC</span>
             </div>
-            <span class="text-[9px] font-mono text-gray-400 opacity-60">SUP-NODE-ASYNC</span>
+            <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_5_t">Automatización de Soporte</h3>
+            <div class="space-y-4">
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_5_d1">Respuestas inmediatas 24/7 en canales unificados.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_5_d2">Clasificación y routing automático de tickets críticos.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_5_d3">Reducción drástica de carga en equipos humanos.</span>
+              </p>
+            </div>
           </div>
-          <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_5_t">Automatización de Soporte</h3>
-          <div class="space-y-4">
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              <span data-i18n="serv_5_d1">Respuestas inmediatas 24/7 en canales unificados.</span>
-            </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              <span data-i18n="serv_5_d2">Clasificación y routing automático de tickets críticos.</span>
-            </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              <span data-i18n="serv_5_d3">Reducción drástica de carga en equipos humanos.</span>
-            </p>
-          </div>
-        </div>
 
-        <!-- Card 6: Procesos Internos -->
-        <div class="system-card flex-shrink-0 w-[85vw] md:w-auto snap-start" style="animation-delay: 0.2s">
-          <div class="flex justify-between items-start mb-2">
-            <div class="icon-box">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 011-1h1a2 2 0 100-4H7a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path>
-              </svg>
+          <!-- Card 6: Procesos Internos -->
+          <div class="system-card flex-shrink-0 w-[85vw] md:w-auto" style="animation-delay: 0.2s">
+            <div class="flex justify-between items-start mb-2">
+              <div class="icon-box">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 011-1h1a2 2 0 100-4H7a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path>
+                </svg>
+              </div>
+              <span class="text-[9px] font-mono text-gray-400 opacity-60">INTERNAL-FLOW-X</span>
             </div>
-            <span class="text-[9px] font-mono text-gray-400 opacity-60">INTERNAL-FLOW-X</span>
+            <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_6_t">Procesos Internos</h3>
+            <div class="space-y-4">
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_6_d1">Automatización de flujos repetitivos y conciliaciones.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_6_d2">Conexión entre sistemas internos sin desarrollo custom.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_6_d3">Diseño a medida según la arquitectura existente.</span>
+              </p>
+            </div>
           </div>
-          <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_6_t">Procesos Internos</h3>
-          <div class="space-y-4">
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              <span data-i18n="serv_6_d1">Automatización de flujos repetitivos y conciliaciones.</span>
-            </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              <span data-i18n="serv_6_d2">Conexión entre sistemas internos sin desarrollo custom.</span>
-            </p>
-            <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
-              <span data-i18n="serv_6_d3">Diseño a medida según la arquitectura existente.</span>
-            </p>
+
+          <!-- CLONES FOR INFINITE CSS SCROLL -->
+          <!-- Card 1 Clone -->
+          <div class="system-card flex-shrink-0 w-[85vw] md:hidden mb-8 md:mb-0 service-clone">
+            <div class="flex justify-between items-start mb-2">
+              <div class="icon-box">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m8 0h-3m4-8a3 3 0 01-3 3H9a3 3 0 01-3-3V5a3 3 0 013-3h6a3 3 0 013 3v6z"></path>
+                </svg>
+              </div>
+              <span class="text-[9px] font-mono text-gray-400 opacity-60">VOX-CORE-01</span>
+            </div>
+            <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_1_t">Agentes de Voz</h3>
+            <div class="space-y-4">
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_1_d1">Atención telefónica automatizada 24/7 inbound y outbound.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_1_d2">Reservas, confirmaciones y seguimiento sin intervención humana.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_1_d3">Análisis automático de sentimiento y contexto de cada conversación.</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2 Clone -->
+          <div class="system-card flex-shrink-0 w-[85vw] md:hidden mb-8 md:mb-0 service-clone">
+            <div class="flex justify-between items-start mb-2">
+              <div class="icon-box">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <span class="text-[9px] font-mono text-gray-400 opacity-60">HUB-SYNC-B2B</span>
+            </div>
+            <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_2_t">Automatización de Outreach</h3>
+            <div class="space-y-4">
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_2_d1">Secuencias multicanal orquestadas sin intervención manual.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_2_d2">Personalización avanzada por perfil de decisor y sector.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_2_d3">Sincronización directa y enriquecimiento de datos en el CRM.</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3 Clone -->
+          <div class="system-card flex-shrink-0 w-[85vw] md:hidden mb-8 md:mb-0 service-clone">
+            <div class="flex justify-between items-start mb-2">
+              <div class="icon-box">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-2.06 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946 2.06 3.42 3.42 0 011.607 4.126 3.42 3.42 0 00.122 2.81 3.42 3.42 0 01-1.607 4.126 3.42 3.42 0 00-1.946 2.06 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-2.06 3.42 3.42 0 01-1.607-4.126 3.42 3.42 0 00-.122-2.81 3.42 3.42 0 011.607-4.126z"></path>
+                </svg>
+              </div>
+              <span class="text-[9px] font-mono text-gray-400 opacity-60">QUAL-SCAN-04</span>
+            </div>
+            <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_3_t">Cualificación Inteligente</h3>
+            <div class="space-y-4">
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_3_d1">Flujos automáticos de validación y scoring de leads.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_3_d2">Escalamiento por prioridad en tiempo real.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_3_d3">Reducción drástica del tiempo hasta la primera respuesta.</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4 Clone -->
+          <div class="system-card flex-shrink-0 w-[85vw] md:hidden mb-8 md:mb-0 service-clone">
+            <div class="flex justify-between items-start mb-2">
+              <div class="icon-box">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+              </div>
+              <span class="text-[9px] font-mono text-gray-400 opacity-60">REP-ALGO-V2</span>
+            </div>
+            <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_4_t">Consolidación de Reporting</h3>
+            <div class="space-y-4">
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_4_d1">Agregación automática de datos operativos disparatados.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="text-accent mt-1.5 flex-shrink-0">
+                  <svg class="w-1.5 h-1.5" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3"/></svg>
+                </span>
+                <span data-i18n="serv_4_d2">Detección de anomalías y varianzas estadísticas.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_4_d3">Informes ejecutivos listos sin compilación manual.</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 5 Clone -->
+          <div class="system-card flex-shrink-0 w-[85vw] md:hidden mb-8 md:mb-0 service-clone">
+            <div class="flex justify-between items-start mb-2">
+              <div class="icon-box">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+              </div>
+              <span class="text-[9px] font-mono text-gray-400 opacity-60">SUP-NODE-ASYNC</span>
+            </div>
+            <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_5_t">Automatización de Soporte</h3>
+            <div class="space-y-4">
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_5_d1">Respuestas inmediatas 24/7 en canales unificados.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_5_d2">Clasificación y routing automático de tickets críticos.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_5_d3">Reducción drástica de carga en equipos humanos.</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 6 Clone -->
+          <div class="system-card flex-shrink-0 w-[85vw] md:hidden service-clone">
+            <div class="flex justify-between items-start mb-2">
+              <div class="icon-box">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 011-1h1a2 2 0 100-4H7a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"></path>
+                </svg>
+              </div>
+              <span class="text-[9px] font-mono text-gray-400 opacity-60">INTERNAL-FLOW-X</span>
+            </div>
+            <h3 class="font-semibold text-xl text-[#1A1A1A] dark:text-white mb-5 tracking-tight" data-i18n="serv_6_t">Procesos Internos</h3>
+            <div class="space-y-4">
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_6_d1">Automatización de flujos repetitivos y conciliaciones.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_6_d2">Conexión entre sistemas internos sin desarrollo custom.</span>
+              </p>
+              <p class="text-[#6B7280] text-sm leading-relaxed flex items-start gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0"></span>
+                <span data-i18n="serv_6_d3">Diseño a medida según la arquitectura existente.</span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -2113,50 +2304,16 @@
 
     // ============ SERVICES CONVEYOR BELT (Mobile) ============
     const servScroll = document.getElementById('services-scroll-container');
-    let conveyorId;
-    let conveyorPaused = false;
-    let conveyorResumeTimer;
+    const servInner = document.getElementById('services-inner');
 
-    // Duplicate content for seamless loop
-    if (servScroll && window.innerWidth < 768) {
-      const children = Array.from(servScroll.children);
-      children.forEach(child => {
-        const clone = child.cloneNode(true);
-        servScroll.appendChild(clone);
-      });
-    }
-
-    function runConveyor() {
-      if (conveyorPaused || !servScroll || window.innerWidth >= 768) return;
-      
-      // Steady incremental move
-      servScroll.scrollLeft += 0.5;
-
-      const halfWidth = servScroll.scrollWidth / 2;
-      if (servScroll.scrollLeft >= halfWidth) {
-        servScroll.scrollLeft = 0;
-      }
-      
-      conveyorId = requestAnimationFrame(runConveyor);
-    }
-
-    if (servScroll) {
+    if (servInner && window.innerWidth < 768) {
       servScroll.addEventListener('touchstart', () => {
-        conveyorPaused = true;
-        cancelAnimationFrame(conveyorId);
-        if (conveyorResumeTimer) clearTimeout(conveyorResumeTimer);
+        servInner.style.animationPlayState = 'paused';
       }, { passive: true });
       
       servScroll.addEventListener('touchend', () => {
-        conveyorResumeTimer = setTimeout(() => {
-          conveyorPaused = false;
-          runConveyor();
-        }, 2000);
+        servInner.style.animationPlayState = 'running';
       }, { passive: true });
-
-      if (window.innerWidth < 768) {
-        runConveyor();
-      }
     }
 
     // Update Last Scan Time
